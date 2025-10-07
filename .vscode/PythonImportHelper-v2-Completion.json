@@ -1,13 +1,5 @@
 [
     {
-        "label": "APIRouter",
-        "importPath": "fastapi",
-        "description": "fastapi",
-        "isExtraImport": true,
-        "detail": "fastapi",
-        "documentation": {}
-    },
-    {
         "label": "Depends",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -56,6 +48,38 @@
         "documentation": {}
     },
     {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Body",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "APIRouter",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -80,7 +104,47 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Body",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Query",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -117,6 +181,22 @@
         "description": "fastapi",
         "isExtraImport": true,
         "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "OAuth2PasswordBearer",
+        "importPath": "fastapi.security",
+        "description": "fastapi.security",
+        "isExtraImport": true,
+        "detail": "fastapi.security",
+        "documentation": {}
+    },
+    {
+        "label": "OAuth2PasswordRequestForm",
+        "importPath": "fastapi.security",
+        "description": "fastapi.security",
+        "isExtraImport": true,
+        "detail": "fastapi.security",
         "documentation": {}
     },
     {
@@ -205,6 +285,150 @@
         "description": "sqlalchemy.ext.asyncio",
         "isExtraImport": true,
         "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "core.database",
+        "description": "core.database",
+        "isExtraImport": true,
+        "detail": "core.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "core.database",
+        "description": "core.database",
+        "isExtraImport": true,
+        "detail": "core.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "core.database",
+        "description": "core.database",
+        "isExtraImport": true,
+        "detail": "core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "core.database",
+        "description": "core.database",
+        "isExtraImport": true,
+        "detail": "core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "core.database",
+        "description": "core.database",
+        "isExtraImport": true,
+        "detail": "core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "core.database",
+        "description": "core.database",
+        "isExtraImport": true,
+        "detail": "core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "core.database",
+        "description": "core.database",
+        "isExtraImport": true,
+        "detail": "core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "core.database",
+        "description": "core.database",
+        "isExtraImport": true,
+        "detail": "core.database",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "importPath": "core.database",
+        "description": "core.database",
+        "isExtraImport": true,
+        "detail": "core.database",
+        "documentation": {}
+    },
+    {
+        "label": "user_service",
+        "importPath": "app.services.user_service",
+        "description": "app.services.user_service",
+        "isExtraImport": true,
+        "detail": "app.services.user_service",
+        "documentation": {}
+    },
+    {
+        "label": "user_service",
+        "importPath": "app.services.user_service",
+        "description": "app.services.user_service",
+        "isExtraImport": true,
+        "detail": "app.services.user_service",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "isExtraImport": true,
+        "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "isExtraImport": true,
+        "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "isExtraImport": true,
+        "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "isExtraImport": true,
+        "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "isExtraImport": true,
+        "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "user_repo",
+        "importPath": "app.crud.user_repo",
+        "description": "app.crud.user_repo",
+        "isExtraImport": true,
+        "detail": "app.crud.user_repo",
+        "documentation": {}
+    },
+    {
+        "label": "user_repo",
+        "importPath": "app.crud.user_repo",
+        "description": "app.crud.user_repo",
+        "isExtraImport": true,
+        "detail": "app.crud.user_repo",
         "documentation": {}
     },
     {
@@ -304,6 +528,14 @@
         "documentation": {}
     },
     {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Optional",
         "importPath": "typing",
         "description": "typing",
@@ -312,75 +544,27 @@
         "documentation": {}
     },
     {
-        "label": "get_db",
-        "importPath": "app.database",
-        "description": "app.database",
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
         "isExtraImport": true,
-        "detail": "app.database",
+        "detail": "typing",
         "documentation": {}
     },
     {
-        "label": "get_db",
-        "importPath": "app.database",
-        "description": "app.database",
+        "label": "Set",
+        "importPath": "typing",
+        "description": "typing",
         "isExtraImport": true,
-        "detail": "app.database",
+        "detail": "typing",
         "documentation": {}
     },
     {
-        "label": "get_db",
-        "importPath": "app.database",
-        "description": "app.database",
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
         "isExtraImport": true,
-        "detail": "app.database",
-        "documentation": {}
-    },
-    {
-        "label": "Base",
-        "importPath": "app.database",
-        "description": "app.database",
-        "isExtraImport": true,
-        "detail": "app.database",
-        "documentation": {}
-    },
-    {
-        "label": "Base",
-        "importPath": "app.database",
-        "description": "app.database",
-        "isExtraImport": true,
-        "detail": "app.database",
-        "documentation": {}
-    },
-    {
-        "label": "Base",
-        "importPath": "app.database",
-        "description": "app.database",
-        "isExtraImport": true,
-        "detail": "app.database",
-        "documentation": {}
-    },
-    {
-        "label": "Base",
-        "importPath": "app.database",
-        "description": "app.database",
-        "isExtraImport": true,
-        "detail": "app.database",
-        "documentation": {}
-    },
-    {
-        "label": "Base",
-        "importPath": "app.database",
-        "description": "app.database",
-        "isExtraImport": true,
-        "detail": "app.database",
-        "documentation": {}
-    },
-    {
-        "label": "engine",
-        "importPath": "app.database",
-        "description": "app.database",
-        "isExtraImport": true,
-        "detail": "app.database",
+        "detail": "typing",
         "documentation": {}
     },
     {
@@ -409,30 +593,47 @@
     },
     {
         "label": "get_current_user",
-        "importPath": "app.api.v1.dependencies",
-        "description": "app.api.v1.dependencies",
+        "importPath": "app.api.dependencies",
+        "description": "app.api.dependencies",
         "isExtraImport": true,
-        "detail": "app.api.v1.dependencies",
+        "detail": "app.api.dependencies",
         "documentation": {}
     },
     {
         "label": "get_current_user",
-        "importPath": "app.api.v1.dependencies",
-        "description": "app.api.v1.dependencies",
+        "importPath": "app.api.dependencies",
+        "description": "app.api.dependencies",
         "isExtraImport": true,
-        "detail": "app.api.v1.dependencies",
+        "detail": "app.api.dependencies",
         "documentation": {}
     },
     {
         "label": "get_db",
-        "importPath": "app.api.v1.dependencies",
-        "description": "app.api.v1.dependencies",
+        "importPath": "app.api.dependencies",
+        "description": "app.api.dependencies",
         "isExtraImport": true,
-        "detail": "app.api.v1.dependencies",
+        "detail": "app.api.dependencies",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
         "documentation": {}
     },
     {
         "label": "TaskCreate",
+        "importPath": "app.schemas.task_schema",
+        "description": "app.schemas.task_schema",
+        "isExtraImport": true,
+        "detail": "app.schemas.task_schema",
+        "documentation": {}
+    },
+    {
+        "label": "TaskUpdate",
         "importPath": "app.schemas.task_schema",
         "description": "app.schemas.task_schema",
         "isExtraImport": true,
@@ -453,22 +654,6 @@
         "description": "app.services.task_service",
         "isExtraImport": true,
         "detail": "app.services.task_service",
-        "documentation": {}
-    },
-    {
-        "label": "OAuth2PasswordRequestForm",
-        "importPath": "fastapi.security",
-        "description": "fastapi.security",
-        "isExtraImport": true,
-        "detail": "fastapi.security",
-        "documentation": {}
-    },
-    {
-        "label": "OAuth2PasswordBearer",
-        "importPath": "fastapi.security",
-        "description": "fastapi.security",
-        "isExtraImport": true,
-        "detail": "fastapi.security",
         "documentation": {}
     },
     {
@@ -504,67 +689,35 @@
         "documentation": {}
     },
     {
-        "label": "user_service",
-        "importPath": "app.services.user_service",
-        "description": "app.services.user_service",
+        "label": "select",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
         "isExtraImport": true,
-        "detail": "app.services.user_service",
+        "detail": "sqlalchemy",
         "documentation": {}
     },
     {
-        "label": "user_service",
-        "importPath": "app.services.user_service",
-        "description": "app.services.user_service",
+        "label": "delete",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
         "isExtraImport": true,
-        "detail": "app.services.user_service",
+        "detail": "sqlalchemy",
         "documentation": {}
     },
     {
-        "label": "User",
-        "importPath": "app.models.user",
-        "description": "app.models.user",
+        "label": "select",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
         "isExtraImport": true,
-        "detail": "app.models.user",
+        "detail": "sqlalchemy",
         "documentation": {}
     },
     {
-        "label": "User",
-        "importPath": "app.models.user",
-        "description": "app.models.user",
+        "label": "select",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
         "isExtraImport": true,
-        "detail": "app.models.user",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "app.models.user",
-        "description": "app.models.user",
-        "isExtraImport": true,
-        "detail": "app.models.user",
-        "documentation": {}
-    },
-    {
-        "label": "User",
-        "importPath": "app.models.user",
-        "description": "app.models.user",
-        "isExtraImport": true,
-        "detail": "app.models.user",
-        "documentation": {}
-    },
-    {
-        "label": "user_repo",
-        "importPath": "app.repositories.user_repo",
-        "description": "app.repositories.user_repo",
-        "isExtraImport": true,
-        "detail": "app.repositories.user_repo",
-        "documentation": {}
-    },
-    {
-        "label": "user_repo",
-        "importPath": "app.repositories.user_repo",
-        "description": "app.repositories.user_repo",
-        "isExtraImport": true,
-        "detail": "app.repositories.user_repo",
+        "detail": "sqlalchemy",
         "documentation": {}
     },
     {
@@ -664,6 +817,14 @@
         "documentation": {}
     },
     {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
         "label": "Text",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
@@ -696,7 +857,15 @@
         "documentation": {}
     },
     {
-        "label": "Integer",
+        "label": "Index",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "text",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
         "isExtraImport": true,
@@ -752,14 +921,6 @@
         "documentation": {}
     },
     {
-        "label": "update",
-        "importPath": "sqlalchemy",
-        "description": "sqlalchemy",
-        "isExtraImport": true,
-        "detail": "sqlalchemy",
-        "documentation": {}
-    },
-    {
         "label": "delete",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
@@ -768,19 +929,35 @@
         "documentation": {}
     },
     {
-        "label": "select",
-        "importPath": "sqlalchemy",
-        "description": "sqlalchemy",
+        "label": "Project",
+        "importPath": "app.models.project",
+        "description": "app.models.project",
         "isExtraImport": true,
-        "detail": "sqlalchemy",
+        "detail": "app.models.project",
         "documentation": {}
     },
     {
-        "label": "select",
-        "importPath": "sqlalchemy",
-        "description": "sqlalchemy",
+        "label": "Project",
+        "importPath": "app.models.project",
+        "description": "app.models.project",
         "isExtraImport": true,
-        "detail": "sqlalchemy",
+        "detail": "app.models.project",
+        "documentation": {}
+    },
+    {
+        "label": "Task",
+        "importPath": "app.models.task",
+        "description": "app.models.task",
+        "isExtraImport": true,
+        "detail": "app.models.task",
+        "documentation": {}
+    },
+    {
+        "label": "Task",
+        "importPath": "app.models.task",
+        "description": "app.models.task",
+        "isExtraImport": true,
+        "detail": "app.models.task",
         "documentation": {}
     },
     {
@@ -801,6 +978,14 @@
     },
     {
         "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "selectinload",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
         "isExtraImport": true,
@@ -840,35 +1025,11 @@
         "documentation": {}
     },
     {
-        "label": "Project",
-        "importPath": "app.models.project",
-        "description": "app.models.project",
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
         "isExtraImport": true,
-        "detail": "app.models.project",
-        "documentation": {}
-    },
-    {
-        "label": "Project",
-        "importPath": "app.models.project",
-        "description": "app.models.project",
-        "isExtraImport": true,
-        "detail": "app.models.project",
-        "documentation": {}
-    },
-    {
-        "label": "Task",
-        "importPath": "app.models.task",
-        "description": "app.models.task",
-        "isExtraImport": true,
-        "detail": "app.models.task",
-        "documentation": {}
-    },
-    {
-        "label": "Task",
-        "importPath": "app.models.task",
-        "description": "app.models.task",
-        "isExtraImport": true,
-        "detail": "app.models.task",
+        "detail": "pydantic",
         "documentation": {}
     },
     {
@@ -880,7 +1041,7 @@
         "documentation": {}
     },
     {
-        "label": "BaseModel",
+        "label": "Field",
         "importPath": "pydantic",
         "description": "pydantic",
         "isExtraImport": true,
@@ -937,18 +1098,10 @@
     },
     {
         "label": "project_repo",
-        "importPath": "app.repositories.project_repo",
-        "description": "app.repositories.project_repo",
+        "importPath": "app.crud.project_repo",
+        "description": "app.crud.project_repo",
         "isExtraImport": true,
-        "detail": "app.repositories.project_repo",
-        "documentation": {}
-    },
-    {
-        "label": "task_repo",
-        "importPath": "app.repositories.task_repo",
-        "description": "app.repositories.task_repo",
-        "isExtraImport": true,
-        "detail": "app.repositories.task_repo",
+        "detail": "app.crud.project_repo",
         "documentation": {}
     },
     {
@@ -1009,27 +1162,35 @@
         "documentation": {}
     },
     {
-        "label": "router",
-        "importPath": "app.api.v1.routers.users_router",
-        "description": "app.api.v1.routers.users_router",
+        "label": "asynccontextmanager",
+        "importPath": "contextlib",
+        "description": "contextlib",
         "isExtraImport": true,
-        "detail": "app.api.v1.routers.users_router",
+        "detail": "contextlib",
         "documentation": {}
     },
     {
         "label": "router",
-        "importPath": "app.api.v1.routers.projects_router",
-        "description": "app.api.v1.routers.projects_router",
+        "importPath": "app.api.users_router",
+        "description": "app.api.users_router",
         "isExtraImport": true,
-        "detail": "app.api.v1.routers.projects_router",
+        "detail": "app.api.users_router",
         "documentation": {}
     },
     {
         "label": "router",
-        "importPath": "app.api.v1.routers.tasks_router",
-        "description": "app.api.v1.routers.tasks_router",
+        "importPath": "app.api.projects_router",
+        "description": "app.api.projects_router",
         "isExtraImport": true,
-        "detail": "app.api.v1.routers.tasks_router",
+        "detail": "app.api.projects_router",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "importPath": "app.api.tasks_router",
+        "description": "app.api.tasks_router",
+        "isExtraImport": true,
+        "detail": "app.api.tasks_router",
         "documentation": {}
     },
     {
@@ -1085,39 +1246,111 @@
         "documentation": {}
     },
     {
-        "label": "router",
-        "kind": 5,
-        "importPath": "app.api.v1.routers.projects_router",
-        "description": "app.api.v1.routers.projects_router",
-        "peekOfCode": "router = APIRouter(prefix=\"/projects\", tags=[\"Projects\"])\n# Create a new project\n@router.post(\"/\", response_model=ProjectOut)\nasync def create_project(payload: ProjectCreate, db: AsyncSession = Depends(get_db), user=Depends(get_current_user)):\n    return await project_service.create_project(db, name=payload.name, description=payload.description)\n# List all projects\n@router.get(\"/\", response_model=List[ProjectOut])\nasync def list_projects(skip: int = 0, limit: int = 100, db: AsyncSession = Depends(get_db), user=Depends(get_current_user)):\n    return await project_service.list_projects(db, skip=skip, limit=limit)",
-        "detail": "app.api.v1.routers.projects_router",
-        "documentation": {}
-    },
-    {
-        "label": "router",
-        "kind": 5,
-        "importPath": "app.api.v1.routers.tasks_router",
-        "description": "app.api.v1.routers.tasks_router",
-        "peekOfCode": "router = APIRouter(prefix=\"/tasks\", tags=[\"Tasks\"])\n# Create task\n@router.post(\"/\", response_model=TaskOut)\nasync def create_task(payload: TaskCreate, db: AsyncSession = Depends(get_db), user=Depends(get_current_user)):\n    return await task_service.create_task(db, title=payload.title, description=payload.description, project_id=payload.project_id)\n# List tasks\n@router.get(\"/\", response_model=List[TaskOut])\nasync def list_tasks(skip: int = 0, limit: int = 100, db: AsyncSession = Depends(get_db), user=Depends(get_current_user)):\n    return await task_service.list_tasks(db, skip=skip, limit=limit)\n# Assign users to task",
-        "detail": "app.api.v1.routers.tasks_router",
-        "documentation": {}
-    },
-    {
-        "label": "router",
-        "kind": 5,
-        "importPath": "app.api.v1.routers.users_router",
-        "description": "app.api.v1.routers.users_router",
-        "peekOfCode": "router = APIRouter()  # <--- NO prefix here\n@router.post(\"/register\", response_model=UserOut, status_code=status.HTTP_201_CREATED)\nasync def register(payload: UserCreate, db=Depends(get_db)):\n    user = await user_service.create_user(db=db, email=payload.email, password=payload.password, name=payload.name)\n    return user\n@router.post(\"/login\", response_model=TokenOut)\nasync def login(form_data: OAuth2PasswordRequestForm = Depends(), db=Depends(get_db)):\n    # OAuth2 form uses 'username' for email\n    user = await user_service.authenticate_user(db=db, email=form_data.username, password=form_data.password)\n    if not user:",
-        "detail": "app.api.v1.routers.users_router",
-        "documentation": {}
-    },
-    {
         "label": "oauth2_scheme",
         "kind": 5,
-        "importPath": "app.api.v1.dependencies",
-        "description": "app.api.v1.dependencies",
-        "peekOfCode": "oauth2_scheme = OAuth2PasswordBearer(tokenUrl=\"/api/v1/users/login\")\nasync def get_current_user(token: str = Depends(oauth2_scheme), db: AsyncSession = Depends(get_db)) -> User:\n    user_id = user_service.decode_access_token(token)\n    if not user_id:\n        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=\"Invalid token\")\n    user = await user_repo.get(db, user_id)\n    if not user:\n        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=\"User not found\")\n    return user",
-        "detail": "app.api.v1.dependencies",
+        "importPath": "app.api.dependencies",
+        "description": "app.api.dependencies",
+        "peekOfCode": "oauth2_scheme = OAuth2PasswordBearer(tokenUrl=\"/api/users/login\")\nasync def get_current_user(token: str = Depends(oauth2_scheme), db: AsyncSession = Depends(get_db)) -> User:\n    user_id = user_service.decode_access_token(token)\n    if not user_id:\n        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=\"Invalid token\")\n    user = await user_repo.get(db, user_id)\n    if not user:\n        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=\"User not found\")\n    return user",
+        "detail": "app.api.dependencies",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "app.api.projects_router",
+        "description": "app.api.projects_router",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nrouter = APIRouter(prefix=\"/projects\", tags=[\"Projects\"])\n# Create a new project\n@router.post(\"/\", response_model=ProjectOut)\nasync def create_project(payload: ProjectCreate, db: AsyncSession = Depends(get_db), user=Depends(get_current_user)):\n    return await project_service.create_project(db, name=payload.name, description=payload.description)\n# List all projects\n@router.get(\"/\", response_model=List[ProjectOut])\nasync def list_projects(skip: int = 0, limit: int = 100, db: AsyncSession = Depends(get_db), user=Depends(get_current_user)):\n    return await project_service.list_projects(db, skip=skip, limit=limit)",
+        "detail": "app.api.projects_router",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "app.api.projects_router",
+        "description": "app.api.projects_router",
+        "peekOfCode": "router = APIRouter(prefix=\"/projects\", tags=[\"Projects\"])\n# Create a new project\n@router.post(\"/\", response_model=ProjectOut)\nasync def create_project(payload: ProjectCreate, db: AsyncSession = Depends(get_db), user=Depends(get_current_user)):\n    return await project_service.create_project(db, name=payload.name, description=payload.description)\n# List all projects\n@router.get(\"/\", response_model=List[ProjectOut])\nasync def list_projects(skip: int = 0, limit: int = 100, db: AsyncSession = Depends(get_db), user=Depends(get_current_user)):\n    return await project_service.list_projects(db, skip=skip, limit=limit)\n# --- Edit project (partial update) ---",
+        "detail": "app.api.projects_router",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "app.api.tasks_router",
+        "description": "app.api.tasks_router",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nrouter = APIRouter(prefix=\"/tasks\", tags=[\"Tasks\"])\n@router.post(\"/\", response_model=TaskOut, status_code=status.HTTP_201_CREATED)\nasync def create_task(\n    payload: TaskCreate = Body(...),\n    db: AsyncSession = Depends(get_db),\n    current_user=Depends(get_current_user),\n):\n    # Normalize/validate parent id\n    parent_id = getattr(payload, \"parent_task_id\", None)",
+        "detail": "app.api.tasks_router",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "app.api.tasks_router",
+        "description": "app.api.tasks_router",
+        "peekOfCode": "router = APIRouter(prefix=\"/tasks\", tags=[\"Tasks\"])\n@router.post(\"/\", response_model=TaskOut, status_code=status.HTTP_201_CREATED)\nasync def create_task(\n    payload: TaskCreate = Body(...),\n    db: AsyncSession = Depends(get_db),\n    current_user=Depends(get_current_user),\n):\n    # Normalize/validate parent id\n    parent_id = getattr(payload, \"parent_task_id\", None)\n    if parent_id is not None:",
+        "detail": "app.api.tasks_router",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "app.api.users_router",
+        "description": "app.api.users_router",
+        "peekOfCode": "router = APIRouter()  # <--- NO prefix here\n@router.post(\"/register\", response_model=UserOut, status_code=status.HTTP_201_CREATED)\nasync def register(payload: UserCreate, db=Depends(get_db)):\n    user = await user_service.create_user(db=db, email=payload.email, password=payload.password, name=payload.name)\n    print(\"Created user:\", user.id)\n    return user\n@router.post(\"/login\", response_model=TokenOut)\nasync def login(form_data: OAuth2PasswordRequestForm = Depends(), db=Depends(get_db)):\n    # OAuth2 form uses 'username' for email\n    user = await user_service.authenticate_user(db=db, email=form_data.username, password=form_data.password)",
+        "detail": "app.api.users_router",
+        "documentation": {}
+    },
+    {
+        "label": "ProjectRepository",
+        "kind": 6,
+        "importPath": "app.crud.project_repo",
+        "description": "app.crud.project_repo",
+        "peekOfCode": "class ProjectRepository:\n    \"\"\"Repository layer for Project CRUD operations.\"\"\"\n    async def create(self, db: AsyncSession, *, name: str, description: str | None = None) -> Project:\n        \"\"\"Create a new project. Do NOT commit here.\"\"\"\n        project = Project(name=name, description=description)\n        db.add(project)\n        await db.flush()  # assign ID without committing\n        await db.refresh(project)\n        return project\n    async def get(self, db: AsyncSession, project_id: int) -> Optional[Project]:",
+        "detail": "app.crud.project_repo",
+        "documentation": {}
+    },
+    {
+        "label": "project_repo",
+        "kind": 5,
+        "importPath": "app.crud.project_repo",
+        "description": "app.crud.project_repo",
+        "peekOfCode": "project_repo = ProjectRepository()",
+        "detail": "app.crud.project_repo",
+        "documentation": {}
+    },
+    {
+        "label": "TaskRepository",
+        "kind": 6,
+        "importPath": "app.crud.task_repo",
+        "description": "app.crud.task_repo",
+        "peekOfCode": "class TaskRepository:\n    async def create(\n        self,\n        db: AsyncSession,\n        *,\n        title: str,\n        project_id: int,\n        creator_id: int | None = None,\n        description: str | None = None,\n        priority: int | None = 3,",
+        "detail": "app.crud.task_repo",
+        "documentation": {}
+    },
+    {
+        "label": "task_repo",
+        "kind": 5,
+        "importPath": "app.crud.task_repo",
+        "description": "app.crud.task_repo",
+        "peekOfCode": "task_repo = TaskRepository()",
+        "detail": "app.crud.task_repo",
+        "documentation": {}
+    },
+    {
+        "label": "UserRepository",
+        "kind": 6,
+        "importPath": "app.crud.user_repo",
+        "description": "app.crud.user_repo",
+        "peekOfCode": "class UserRepository:\n    \"\"\"Repository for User queries.\"\"\"\n    async def get(self, db: AsyncSession, user_id: int) -> Optional[User]:\n        result = await db.execute(select(User).where(User.id == user_id))\n        return result.scalars().first()\n    async def get_by_email(self, db: AsyncSession, email: str) -> Optional[User]:\n        result = await db.execute(select(User).where(User.email == email))\n        return result.scalars().first()\n    async def create(self, db: AsyncSession, *, email: str, password_hash: str, name: str | None = None) -> User:\n        user = User(email=email, password_hash=password_hash, name=name)",
+        "detail": "app.crud.user_repo",
+        "documentation": {}
+    },
+    {
+        "label": "user_repo",
+        "kind": 5,
+        "importPath": "app.crud.user_repo",
+        "description": "app.crud.user_repo",
+        "peekOfCode": "user_repo = UserRepository()",
+        "detail": "app.crud.user_repo",
         "documentation": {}
     },
     {
@@ -1125,7 +1358,7 @@
         "kind": 5,
         "importPath": "app.models.association_tables",
         "description": "app.models.association_tables",
-        "peekOfCode": "task_assignees = Table(\n    \"task_assignees\",\n    Base.metadata,\n    Column(\"task_id\", BigInteger, ForeignKey(\"tasks.id\", ondelete=\"CASCADE\"), primary_key=True),\n    Column(\"user_id\", BigInteger, ForeignKey(\"users.id\", ondelete=\"CASCADE\"), primary_key=True),\n)\n# (Optional) If you later add tags, keep this here:\n# task_tags = Table(\n#     \"task_tags\",\n#     Base.metadata,",
+        "peekOfCode": "task_assignees = Table(\n    \"task_assignees\",\n    Base.metadata,\n    Column(\"task_id\", BigInteger, ForeignKey(\"tasks.id\", ondelete=\"CASCADE\"), primary_key=True),\n    Column(\"user_id\", BigInteger, ForeignKey(\"users.id\", ondelete=\"CASCADE\"), primary_key=True),\n    # you can add columns like assigned_at or assigned_by here if you need them\n)",
         "detail": "app.models.association_tables",
         "documentation": {}
     },
@@ -1143,7 +1376,7 @@
         "kind": 6,
         "importPath": "app.models.task",
         "description": "app.models.task",
-        "peekOfCode": "class Task(Base):\n    __tablename__ = \"tasks\"\n    id = Column(BigInteger, primary_key=True, index=True)\n    project_id = Column(BigInteger, ForeignKey(\"projects.id\", ondelete=\"CASCADE\"), nullable=False, index=True)\n    creator_id = Column(BigInteger, ForeignKey(\"users.id\", ondelete=\"SET NULL\"), nullable=True)\n    title = Column(Text, nullable=False)\n    description = Column(Text, nullable=True)\n    status = Column(Text, nullable=False, server_default=\"todo\")\n    priority = Column(Integer, server_default=\"3\")\n    created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())",
+        "peekOfCode": "class Task(Base):\n    __tablename__ = \"tasks\"\n    __table_args__ = (\n        Index(\"ix_tasks_project_id_status_due_at\", \"project_id\", \"status\", \"due_at\"),\n    )\n    id = Column(BigInteger, primary_key=True, index=True)\n    project_id = Column(BigInteger, ForeignKey(\"projects.id\", ondelete=\"CASCADE\"), nullable=False, index=True)\n    creator_id = Column(BigInteger, ForeignKey(\"users.id\", ondelete=\"SET NULL\"), nullable=True)\n    title = Column(Text, nullable=False)\n    description = Column(Text, nullable=True)",
         "detail": "app.models.task",
         "documentation": {}
     },
@@ -1154,60 +1387,6 @@
         "description": "app.models.user",
         "peekOfCode": "class User(Base):\n    __tablename__ = \"users\"\n    id = Column(BigInteger, primary_key=True, index=True)\n    email = Column(Text, unique=True, nullable=False, index=True)\n    name = Column(Text, nullable=True)\n    password_hash = Column(Text, nullable=False)\n    created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())\n    updated_at = Column(TIMESTAMP(timezone=True), server_default=func.now(), onupdate=func.now())\n    # tasks that this user created (one-to-many)\n    created_tasks = relationship(\"Task\", back_populates=\"creator\", lazy=\"select\")",
         "detail": "app.models.user",
-        "documentation": {}
-    },
-    {
-        "label": "ProjectRepository",
-        "kind": 6,
-        "importPath": "app.repositories.project_repo",
-        "description": "app.repositories.project_repo",
-        "peekOfCode": "class ProjectRepository:\n    async def create(self, db: AsyncSession, *, name: str, description: str | None = None) -> Project:\n        project = Project(name=name, description=description)\n        db.add(project)\n        await db.commit()\n        await db.refresh(project)\n        return project\n    async def get(self, db: AsyncSession, project_id: int) -> Optional[Project]:\n        result = await db.execute(select(Project).where(Project.id == project_id))\n        return result.scalars().first()",
-        "detail": "app.repositories.project_repo",
-        "documentation": {}
-    },
-    {
-        "label": "project_repo",
-        "kind": 5,
-        "importPath": "app.repositories.project_repo",
-        "description": "app.repositories.project_repo",
-        "peekOfCode": "project_repo = ProjectRepository()",
-        "detail": "app.repositories.project_repo",
-        "documentation": {}
-    },
-    {
-        "label": "TaskRepository",
-        "kind": 6,
-        "importPath": "app.repositories.task_repo",
-        "description": "app.repositories.task_repo",
-        "peekOfCode": "class TaskRepository:\n    async def create(\n        self,\n        db: AsyncSession,\n        *,\n        title: str,\n        project_id: int,\n        creator_id: int | None = None,\n        description: str | None = None,\n        priority: int | None = 3,",
-        "detail": "app.repositories.task_repo",
-        "documentation": {}
-    },
-    {
-        "label": "task_repo",
-        "kind": 5,
-        "importPath": "app.repositories.task_repo",
-        "description": "app.repositories.task_repo",
-        "peekOfCode": "task_repo = TaskRepository()",
-        "detail": "app.repositories.task_repo",
-        "documentation": {}
-    },
-    {
-        "label": "UserRepository",
-        "kind": 6,
-        "importPath": "app.repositories.user_repo",
-        "description": "app.repositories.user_repo",
-        "peekOfCode": "class UserRepository:\n    \"\"\"Repository for User queries.\"\"\"\n    async def get(self, db: AsyncSession, user_id: int) -> Optional[User]:\n        result = await db.execute(select(User).where(User.id == user_id))\n        return result.scalars().first()\n    async def get_by_email(self, db: AsyncSession, email: str) -> Optional[User]:\n        result = await db.execute(select(User).where(User.email == email))\n        return result.scalars().first()\n    async def create(self, db: AsyncSession, *, email: str, password_hash: str, name: str | None = None) -> User:\n        user = User(email=email, password_hash=password_hash, name=name)",
-        "detail": "app.repositories.user_repo",
-        "documentation": {}
-    },
-    {
-        "label": "user_repo",
-        "kind": 5,
-        "importPath": "app.repositories.user_repo",
-        "description": "app.repositories.user_repo",
-        "peekOfCode": "user_repo = UserRepository()",
-        "detail": "app.repositories.user_repo",
         "documentation": {}
     },
     {
@@ -1251,16 +1430,25 @@
         "kind": 6,
         "importPath": "app.schemas.task_schema",
         "description": "app.schemas.task_schema",
-        "peekOfCode": "class TaskCreate(BaseModel):\n    title: str\n    description: Optional[str] = None\n    project_id: int\n    assignee_ids: List[int] = []\n    due_at: Optional[datetime] = None\n    start_at: Optional[datetime] = None\n    estimated_minutes: Optional[int] = None\n    model_config = {\"from_attributes\": True}\nclass TaskRead(BaseModel):",
+        "peekOfCode": "class TaskCreate(BaseModel):\n    title: str\n    description: Optional[str] = None\n    project_id: int\n    parent_task_id: Optional[int] = Field(default=None, description=\"Optional. Only provide for subtasks\")\n    assignee_ids: Optional[List[int]] = Field(default_factory=list)\n    due_at: Optional[datetime] = None\n    start_at: Optional[datetime] = None\n    estimated_minutes: Optional[int] = None\n    # forbid extra fields on creation payloads",
         "detail": "app.schemas.task_schema",
         "documentation": {}
     },
     {
-        "label": "TaskRead",
+        "label": "TaskReadBase",
         "kind": 6,
         "importPath": "app.schemas.task_schema",
         "description": "app.schemas.task_schema",
-        "peekOfCode": "class TaskRead(BaseModel):\n    id: int\n    title: str\n    description: Optional[str] = None\n    project_id: int\n    assignee_ids: List[int] = []\n    due_at: Optional[datetime] = None\n    start_at: Optional[datetime] = None\n    estimated_minutes: Optional[int] = None\n    version: Optional[int] = None",
+        "peekOfCode": "class TaskReadBase(BaseModel):\n    id: int\n    title: str\n    description: Optional[str] = None\n    project_id: int\n    parent_task_id: Optional[int] = None\n    assignee_ids: List[int] = Field(default_factory=list)\n    due_at: Optional[datetime] = None\n    start_at: Optional[datetime] = None\n    estimated_minutes: Optional[int] = None",
+        "detail": "app.schemas.task_schema",
+        "documentation": {}
+    },
+    {
+        "label": "TaskNested",
+        "kind": 6,
+        "importPath": "app.schemas.task_schema",
+        "description": "app.schemas.task_schema",
+        "peekOfCode": "class TaskNested(TaskReadBase):\n    subtasks: List[\"TaskNested\"] = Field(default_factory=list)\nclass TaskUpdate(BaseModel):\n    title: Optional[str] = None\n    description: Optional[str] = None\n    assignee_ids: Optional[List[int]] = None\n    due_at: Optional[datetime] = None\n    parent_task_id: Optional[int] = None\n    start_at: Optional[datetime] = None\n    estimated_minutes: Optional[int] = None",
         "detail": "app.schemas.task_schema",
         "documentation": {}
     },
@@ -1269,7 +1457,16 @@
         "kind": 6,
         "importPath": "app.schemas.task_schema",
         "description": "app.schemas.task_schema",
-        "peekOfCode": "class TaskUpdate(BaseModel):\n    title: Optional[str] = None\n    description: Optional[str] = None\n    assignee_ids: Optional[List[int]] = None\n    due_at: Optional[datetime] = None\n    start_at: Optional[datetime] = None\n    estimated_minutes: Optional[int] = None\n    version: Optional[int] = None\n    model_config = {\"from_attributes\": True}\n# Backwards-compatible alias (some code expects TaskOut)",
+        "peekOfCode": "class TaskUpdate(BaseModel):\n    title: Optional[str] = None\n    description: Optional[str] = None\n    assignee_ids: Optional[List[int]] = None\n    due_at: Optional[datetime] = None\n    parent_task_id: Optional[int] = None\n    start_at: Optional[datetime] = None\n    estimated_minutes: Optional[int] = None\n    version: Optional[int] = None\n    model_config = {\"from_attributes\": True}",
+        "detail": "app.schemas.task_schema",
+        "documentation": {}
+    },
+    {
+        "label": "TaskRead",
+        "kind": 6,
+        "importPath": "app.schemas.task_schema",
+        "description": "app.schemas.task_schema",
+        "peekOfCode": "class TaskRead(TaskReadBase):\n    subtasks: List[TaskNested] = Field(default_factory=list)\n# alias expected by other parts of your code\nTaskOut = TaskRead\n# resolve recursive models (Pydantic v2)\nTaskNested.model_rebuild()\nTaskRead.model_rebuild()",
         "detail": "app.schemas.task_schema",
         "documentation": {}
     },
@@ -1278,7 +1475,7 @@
         "kind": 5,
         "importPath": "app.schemas.task_schema",
         "description": "app.schemas.task_schema",
-        "peekOfCode": "TaskOut = TaskRead",
+        "peekOfCode": "TaskOut = TaskRead\n# resolve recursive models (Pydantic v2)\nTaskNested.model_rebuild()\nTaskRead.model_rebuild()",
         "detail": "app.schemas.task_schema",
         "documentation": {}
     },
@@ -1323,7 +1520,7 @@
         "kind": 6,
         "importPath": "app.services.project_service",
         "description": "app.services.project_service",
-        "peekOfCode": "class ProjectService:\n    async def create_project(self, db: AsyncSession, name: str, description: str | None = None) -> Project:\n        return await project_repo.create(db, name=name, description=description)\n    async def get_project(self, db: AsyncSession, project_id: int) -> Project | None:\n        return await project_repo.get(db, project_id)\n    async def list_projects(self, db: AsyncSession, skip: int = 0, limit: int = 100) -> list[Project]:\n        return await project_repo.list(db, skip=skip, limit=limit)\n    async def update_project(self, db: AsyncSession, project_id: int, patch: dict) -> Project | None:\n        return await project_repo.update(db, project_id, patch)\n    async def delete_project(self, db: AsyncSession, project_id: int) -> None:",
+        "peekOfCode": "class ProjectService:\n    \"\"\"Service layer for Project operations.\"\"\"\n    async def create_project(\n        self,\n        db: AsyncSession,\n        name: str,\n        description: str | None = None\n    ) -> Project:\n        \"\"\"Create a new project and commit to DB.\"\"\"\n        project = await project_repo.create(db, name=name, description=description)",
         "detail": "app.services.project_service",
         "documentation": {}
     },
@@ -1341,7 +1538,7 @@
         "kind": 6,
         "importPath": "app.services.task_service",
         "description": "app.services.task_service",
-        "peekOfCode": "class TaskService:\n    async def create_task(self, db: AsyncSession, **kwargs) -> Task:\n        return await task_repo.create(db, **kwargs)\n    async def get_task(self, db: AsyncSession, task_id: int) -> Task | None:\n        return await task_repo.get(db, task_id)\n    async def list_tasks(self, db: AsyncSession, skip: int = 0, limit: int = 100) -> list[Task]:\n        return await task_repo.list(db, skip=skip, limit=limit)\n    async def update_task(self, db: AsyncSession, task_id: int, patch: dict) -> Task | None:\n        return await task_repo.update(db, task_id, patch)\n    async def assign_users(self, db: AsyncSession, task_id: int, user_ids: Iterable[int]) -> Task | None:",
+        "peekOfCode": "class TaskService:\n    async def create_task(\n        self,\n        db: AsyncSession,\n        creator_id: int,\n        title: str,\n        project_id: int,\n        parent_task_id: Optional[int] = None,\n        assignee_ids: Optional[Iterable[int]] = None,\n        description: Optional[str] = None,",
         "detail": "app.services.task_service",
         "documentation": {}
     },
@@ -1359,7 +1556,7 @@
         "kind": 6,
         "importPath": "app.services.user_service",
         "description": "app.services.user_service",
-        "peekOfCode": "class UserService:\n    \"\"\"Service layer for user operations.\"\"\"\n    async def register_user(self, db: AsyncSession, payload: UserCreate) -> User:\n        \"\"\"Create a new user with hashed password.\"\"\"\n        existing = await user_repo.get_by_email(db, payload.email)\n        if existing:\n            raise ValueError(\"User with this email already exists\")\n        hashed_password = self.hash_password(payload.password)\n        user = await user_repo.create(\n            db,",
+        "peekOfCode": "class UserService:\n    \"\"\"Service layer for user operations.\"\"\"\n    # keep an async create_user for routers to await\n    async def create_user(self, db: AsyncSession, email: str, password: str, name: Optional[str] = None) -> User:\n        \"\"\"\n        Create a new user and persist to DB. Raises ValueError if email exists.\n        This is async so router can: await user_service.create_user(...)\n        \"\"\"\n        existing = await user_repo.get_by_email(db, email)\n        if existing:",
         "detail": "app.services.user_service",
         "documentation": {}
     },
@@ -1368,7 +1565,7 @@
         "kind": 5,
         "importPath": "app.services.user_service",
         "description": "app.services.user_service",
-        "peekOfCode": "SECRET_KEY = os.getenv(\"JWT_SECRET_KEY\", \"replace-this-with-strong-secret\")\nALGORITHM = os.getenv(\"JWT_ALGORITHM\", \"HS256\")\nACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv(\"ACCESS_TOKEN_EXPIRE_MINUTES\", 1440))\n# Password hashing context\npwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\nclass UserService:\n    \"\"\"Service layer for user operations.\"\"\"\n    async def register_user(self, db: AsyncSession, payload: UserCreate) -> User:\n        \"\"\"Create a new user with hashed password.\"\"\"\n        existing = await user_repo.get_by_email(db, payload.email)",
+        "peekOfCode": "SECRET_KEY = os.getenv(\"JWT_SECRET_KEY\", \"replace-this-with-strong-secret\")\nALGORITHM = os.getenv(\"JWT_ALGORITHM\", \"HS256\")\n# env vars are strings; ensure we convert safely\nACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv(\"ACCESS_TOKEN_EXPIRE_MINUTES\", \"1440\"))\npwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\nclass UserService:\n    \"\"\"Service layer for user operations.\"\"\"\n    # keep an async create_user for routers to await\n    async def create_user(self, db: AsyncSession, email: str, password: str, name: Optional[str] = None) -> User:\n        \"\"\"",
         "detail": "app.services.user_service",
         "documentation": {}
     },
@@ -1377,7 +1574,7 @@
         "kind": 5,
         "importPath": "app.services.user_service",
         "description": "app.services.user_service",
-        "peekOfCode": "ALGORITHM = os.getenv(\"JWT_ALGORITHM\", \"HS256\")\nACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv(\"ACCESS_TOKEN_EXPIRE_MINUTES\", 1440))\n# Password hashing context\npwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\nclass UserService:\n    \"\"\"Service layer for user operations.\"\"\"\n    async def register_user(self, db: AsyncSession, payload: UserCreate) -> User:\n        \"\"\"Create a new user with hashed password.\"\"\"\n        existing = await user_repo.get_by_email(db, payload.email)\n        if existing:",
+        "peekOfCode": "ALGORITHM = os.getenv(\"JWT_ALGORITHM\", \"HS256\")\n# env vars are strings; ensure we convert safely\nACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv(\"ACCESS_TOKEN_EXPIRE_MINUTES\", \"1440\"))\npwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\nclass UserService:\n    \"\"\"Service layer for user operations.\"\"\"\n    # keep an async create_user for routers to await\n    async def create_user(self, db: AsyncSession, email: str, password: str, name: Optional[str] = None) -> User:\n        \"\"\"\n        Create a new user and persist to DB. Raises ValueError if email exists.",
         "detail": "app.services.user_service",
         "documentation": {}
     },
@@ -1386,7 +1583,7 @@
         "kind": 5,
         "importPath": "app.services.user_service",
         "description": "app.services.user_service",
-        "peekOfCode": "ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv(\"ACCESS_TOKEN_EXPIRE_MINUTES\", 1440))\n# Password hashing context\npwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\nclass UserService:\n    \"\"\"Service layer for user operations.\"\"\"\n    async def register_user(self, db: AsyncSession, payload: UserCreate) -> User:\n        \"\"\"Create a new user with hashed password.\"\"\"\n        existing = await user_repo.get_by_email(db, payload.email)\n        if existing:\n            raise ValueError(\"User with this email already exists\")",
+        "peekOfCode": "ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv(\"ACCESS_TOKEN_EXPIRE_MINUTES\", \"1440\"))\npwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\nclass UserService:\n    \"\"\"Service layer for user operations.\"\"\"\n    # keep an async create_user for routers to await\n    async def create_user(self, db: AsyncSession, email: str, password: str, name: Optional[str] = None) -> User:\n        \"\"\"\n        Create a new user and persist to DB. Raises ValueError if email exists.\n        This is async so router can: await user_service.create_user(...)\n        \"\"\"",
         "detail": "app.services.user_service",
         "documentation": {}
     },
@@ -1395,7 +1592,7 @@
         "kind": 5,
         "importPath": "app.services.user_service",
         "description": "app.services.user_service",
-        "peekOfCode": "pwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\nclass UserService:\n    \"\"\"Service layer for user operations.\"\"\"\n    async def register_user(self, db: AsyncSession, payload: UserCreate) -> User:\n        \"\"\"Create a new user with hashed password.\"\"\"\n        existing = await user_repo.get_by_email(db, payload.email)\n        if existing:\n            raise ValueError(\"User with this email already exists\")\n        hashed_password = self.hash_password(payload.password)\n        user = await user_repo.create(",
+        "peekOfCode": "pwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")\nclass UserService:\n    \"\"\"Service layer for user operations.\"\"\"\n    # keep an async create_user for routers to await\n    async def create_user(self, db: AsyncSession, email: str, password: str, name: Optional[str] = None) -> User:\n        \"\"\"\n        Create a new user and persist to DB. Raises ValueError if email exists.\n        This is async so router can: await user_service.create_user(...)\n        \"\"\"\n        existing = await user_repo.get_by_email(db, email)",
         "detail": "app.services.user_service",
         "documentation": {}
     },
@@ -1409,47 +1606,11 @@
         "documentation": {}
     },
     {
-        "label": "DATABASE_URL",
-        "kind": 5,
-        "importPath": "app.database",
-        "description": "app.database",
-        "peekOfCode": "DATABASE_URL = os.getenv(\"DATABASE_URL\")\nif not DATABASE_URL:\n    raise ValueError(\"DATABASE_URL is not set in the .env file\")\n# Create async SQLAlchemy engine\nengine = create_async_engine(\n    DATABASE_URL,\n    echo=True,  # Set to False in production\n    future=True\n)\n# Async session factory",
-        "detail": "app.database",
-        "documentation": {}
-    },
-    {
-        "label": "engine",
-        "kind": 5,
-        "importPath": "app.database",
-        "description": "app.database",
-        "peekOfCode": "engine = create_async_engine(\n    DATABASE_URL,\n    echo=True,  # Set to False in production\n    future=True\n)\n# Async session factory\nasync_session = sessionmaker(\n    bind=engine,\n    expire_on_commit=False,\n    class_=AsyncSession",
-        "detail": "app.database",
-        "documentation": {}
-    },
-    {
-        "label": "async_session",
-        "kind": 5,
-        "importPath": "app.database",
-        "description": "app.database",
-        "peekOfCode": "async_session = sessionmaker(\n    bind=engine,\n    expire_on_commit=False,\n    class_=AsyncSession\n)\n# Base class for models\nBase = declarative_base()\n# Dependency to inject DB session into FastAPI routes\nasync def get_db():\n    async with async_session() as session:",
-        "detail": "app.database",
-        "documentation": {}
-    },
-    {
-        "label": "Base",
-        "kind": 5,
-        "importPath": "app.database",
-        "description": "app.database",
-        "peekOfCode": "Base = declarative_base()\n# Dependency to inject DB session into FastAPI routes\nasync def get_db():\n    async with async_session() as session:\n        yield session",
-        "detail": "app.database",
-        "documentation": {}
-    },
-    {
         "label": "app",
         "kind": 5,
         "importPath": "app.main",
         "description": "app.main",
-        "peekOfCode": "app = FastAPI(title=\"Task Manager API\")\n# Allow CORS for frontend\norigins = [\"*\"]  # You can restrict this to your frontend domains\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)",
+        "peekOfCode": "app = FastAPI(title=\"Task Manager API\", lifespan=lifespan)\n# Configure CORS (adjust origins for security; \"*\" is permissive)\norigins = [\"*\"]\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)",
         "detail": "app.main",
         "documentation": {}
     },
@@ -1458,8 +1619,44 @@
         "kind": 5,
         "importPath": "app.main",
         "description": "app.main",
-        "peekOfCode": "origins = [\"*\"]  # You can restrict this to your frontend domains\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\n# Include routers\napp.include_router(users_router, prefix=\"/api/v1/users\", tags=[\"Users\"])",
+        "peekOfCode": "origins = [\"*\"]\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\n# -------------- ROUTERS / API --------------\n# IMPORTANT: Be careful with prefixes — see note below.",
         "detail": "app.main",
+        "documentation": {}
+    },
+    {
+        "label": "DATABASE_URL",
+        "kind": 5,
+        "importPath": "core.database",
+        "description": "core.database",
+        "peekOfCode": "DATABASE_URL = os.getenv(\"DATABASE_URL\")\nif not DATABASE_URL:\n    raise ValueError(\"DATABASE_URL is not set in the .env file\")\n# Create async SQLAlchemy engine\nengine = create_async_engine(\n    DATABASE_URL,\n    echo=True,  # Set to False in production\n    future=True\n)\n# Async session factory",
+        "detail": "core.database",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "kind": 5,
+        "importPath": "core.database",
+        "description": "core.database",
+        "peekOfCode": "engine = create_async_engine(\n    DATABASE_URL,\n    echo=True,  # Set to False in production\n    future=True\n)\n# Async session factory\nasync_session = sessionmaker(\n    bind=engine,\n    expire_on_commit=False,\n    class_=AsyncSession",
+        "detail": "core.database",
+        "documentation": {}
+    },
+    {
+        "label": "async_session",
+        "kind": 5,
+        "importPath": "core.database",
+        "description": "core.database",
+        "peekOfCode": "async_session = sessionmaker(\n    bind=engine,\n    expire_on_commit=False,\n    class_=AsyncSession\n)\n# Base class for models\nBase = declarative_base()\n# Dependency to inject DB session into FastAPI routes\nasync def get_db():\n    async with async_session() as session:",
+        "detail": "core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "core.database",
+        "description": "core.database",
+        "peekOfCode": "Base = declarative_base()\n# Dependency to inject DB session into FastAPI routes\nasync def get_db():\n    async with async_session() as session:\n        try:\n            yield session\n        except:\n            await session.rollback()\n            raise",
+        "detail": "core.database",
         "documentation": {}
     },
     {

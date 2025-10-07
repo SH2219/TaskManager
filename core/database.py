@@ -33,4 +33,10 @@ Base = declarative_base()
 # Dependency to inject DB session into FastAPI routes
 async def get_db():
     async with async_session() as session:
-        yield session
+        try:
+            yield session
+        except:
+            await session.rollback()
+            raise
+
+

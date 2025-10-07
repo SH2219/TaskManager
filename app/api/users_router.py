@@ -7,13 +7,14 @@ from app.schemas.user_schema import UserCreate, UserOut, TokenOut
 
 
 from app.services.user_service import user_service
-from app.api.v1.dependencies import get_db  # your DB dependency
+from app.api.dependencies import get_db  # your DB dependency
 
 router = APIRouter()  # <--- NO prefix here
 
 @router.post("/register", response_model=UserOut, status_code=status.HTTP_201_CREATED)
 async def register(payload: UserCreate, db=Depends(get_db)):
     user = await user_service.create_user(db=db, email=payload.email, password=payload.password, name=payload.name)
+    print("Created user:", user.id)
     return user
 
 @router.post("/login", response_model=TokenOut)
