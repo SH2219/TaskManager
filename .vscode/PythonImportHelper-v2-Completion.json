@@ -1,5 +1,334 @@
 [
     {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Iterable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Iterable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Set",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Body",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "Depends",
         "importPath": "fastapi",
         "description": "fastapi",
@@ -73,6 +402,54 @@
     },
     {
         "label": "Response",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Body",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -184,54 +561,6 @@
         "documentation": {}
     },
     {
-        "label": "OAuth2PasswordBearer",
-        "importPath": "fastapi.security",
-        "description": "fastapi.security",
-        "isExtraImport": true,
-        "detail": "fastapi.security",
-        "documentation": {}
-    },
-    {
-        "label": "OAuth2PasswordRequestForm",
-        "importPath": "fastapi.security",
-        "description": "fastapi.security",
-        "isExtraImport": true,
-        "detail": "fastapi.security",
-        "documentation": {}
-    },
-    {
-        "label": "AsyncSession",
-        "importPath": "sqlalchemy.ext.asyncio",
-        "description": "sqlalchemy.ext.asyncio",
-        "isExtraImport": true,
-        "detail": "sqlalchemy.ext.asyncio",
-        "documentation": {}
-    },
-    {
-        "label": "AsyncSession",
-        "importPath": "sqlalchemy.ext.asyncio",
-        "description": "sqlalchemy.ext.asyncio",
-        "isExtraImport": true,
-        "detail": "sqlalchemy.ext.asyncio",
-        "documentation": {}
-    },
-    {
-        "label": "AsyncSession",
-        "importPath": "sqlalchemy.ext.asyncio",
-        "description": "sqlalchemy.ext.asyncio",
-        "isExtraImport": true,
-        "detail": "sqlalchemy.ext.asyncio",
-        "documentation": {}
-    },
-    {
-        "label": "AsyncSession",
-        "importPath": "sqlalchemy.ext.asyncio",
-        "description": "sqlalchemy.ext.asyncio",
-        "isExtraImport": true,
-        "detail": "sqlalchemy.ext.asyncio",
-        "documentation": {}
-    },
-    {
         "label": "AsyncSession",
         "importPath": "sqlalchemy.ext.asyncio",
         "description": "sqlalchemy.ext.asyncio",
@@ -288,75 +617,283 @@
         "documentation": {}
     },
     {
-        "label": "get_db",
-        "importPath": "core.database",
-        "description": "core.database",
+        "label": "AsyncSession",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
         "isExtraImport": true,
-        "detail": "core.database",
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncSession",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncSession",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncSession",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncSession",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncSession",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncSession",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncSession",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncSession",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncSession",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
         "documentation": {}
     },
     {
         "label": "get_db",
-        "importPath": "core.database",
-        "description": "core.database",
+        "importPath": "app.core.database",
+        "description": "app.core.database",
         "isExtraImport": true,
-        "detail": "core.database",
+        "detail": "app.core.database",
         "documentation": {}
     },
     {
         "label": "get_db",
-        "importPath": "core.database",
-        "description": "core.database",
+        "importPath": "app.core.database",
+        "description": "app.core.database",
         "isExtraImport": true,
-        "detail": "core.database",
+        "detail": "app.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "app.core.database",
+        "description": "app.core.database",
+        "isExtraImport": true,
+        "detail": "app.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "app.core.database",
+        "description": "app.core.database",
+        "isExtraImport": true,
+        "detail": "app.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "app.core.database",
+        "description": "app.core.database",
+        "isExtraImport": true,
+        "detail": "app.core.database",
         "documentation": {}
     },
     {
         "label": "Base",
-        "importPath": "core.database",
-        "description": "core.database",
+        "importPath": "app.core.database",
+        "description": "app.core.database",
         "isExtraImport": true,
-        "detail": "core.database",
+        "detail": "app.core.database",
         "documentation": {}
     },
     {
         "label": "Base",
-        "importPath": "core.database",
-        "description": "core.database",
+        "importPath": "app.core.database",
+        "description": "app.core.database",
         "isExtraImport": true,
-        "detail": "core.database",
+        "detail": "app.core.database",
         "documentation": {}
     },
     {
         "label": "Base",
-        "importPath": "core.database",
-        "description": "core.database",
+        "importPath": "app.core.database",
+        "description": "app.core.database",
         "isExtraImport": true,
-        "detail": "core.database",
+        "detail": "app.core.database",
         "documentation": {}
     },
     {
         "label": "Base",
-        "importPath": "core.database",
-        "description": "core.database",
+        "importPath": "app.core.database",
+        "description": "app.core.database",
         "isExtraImport": true,
-        "detail": "core.database",
+        "detail": "app.core.database",
         "documentation": {}
     },
     {
         "label": "Base",
-        "importPath": "core.database",
-        "description": "core.database",
+        "importPath": "app.core.database",
+        "description": "app.core.database",
         "isExtraImport": true,
-        "detail": "core.database",
+        "detail": "app.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "app.core.database",
+        "description": "app.core.database",
+        "isExtraImport": true,
+        "detail": "app.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "app.core.database",
+        "description": "app.core.database",
+        "isExtraImport": true,
+        "detail": "app.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "importPath": "app.core.database",
+        "description": "app.core.database",
+        "isExtraImport": true,
+        "detail": "app.core.database",
         "documentation": {}
     },
     {
         "label": "engine",
-        "importPath": "core.database",
-        "description": "core.database",
+        "importPath": "app.core.database",
+        "description": "app.core.database",
         "isExtraImport": true,
-        "detail": "core.database",
+        "detail": "app.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "CommentCreate",
+        "importPath": "app.schemas.comment_schema",
+        "description": "app.schemas.comment_schema",
+        "isExtraImport": true,
+        "detail": "app.schemas.comment_schema",
+        "documentation": {}
+    },
+    {
+        "label": "CommentUpdate",
+        "importPath": "app.schemas.comment_schema",
+        "description": "app.schemas.comment_schema",
+        "isExtraImport": true,
+        "detail": "app.schemas.comment_schema",
+        "documentation": {}
+    },
+    {
+        "label": "CommentRead",
+        "importPath": "app.schemas.comment_schema",
+        "description": "app.schemas.comment_schema",
+        "isExtraImport": true,
+        "detail": "app.schemas.comment_schema",
+        "documentation": {}
+    },
+    {
+        "label": "comment_service",
+        "importPath": "app.services.comment_service",
+        "description": "app.services.comment_service",
+        "isExtraImport": true,
+        "detail": "app.services.comment_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "importPath": "app.api.dependencies",
+        "description": "app.api.dependencies",
+        "isExtraImport": true,
+        "detail": "app.api.dependencies",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "importPath": "app.api.dependencies",
+        "description": "app.api.dependencies",
+        "isExtraImport": true,
+        "detail": "app.api.dependencies",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "importPath": "app.api.dependencies",
+        "description": "app.api.dependencies",
+        "isExtraImport": true,
+        "detail": "app.api.dependencies",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "importPath": "app.api.dependencies",
+        "description": "app.api.dependencies",
+        "isExtraImport": true,
+        "detail": "app.api.dependencies",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "app.api.dependencies",
+        "description": "app.api.dependencies",
+        "isExtraImport": true,
+        "detail": "app.api.dependencies",
+        "documentation": {}
+    },
+    {
+        "label": "OAuth2PasswordBearer",
+        "importPath": "fastapi.security",
+        "description": "fastapi.security",
+        "isExtraImport": true,
+        "detail": "fastapi.security",
+        "documentation": {}
+    },
+    {
+        "label": "OAuth2PasswordRequestForm",
+        "importPath": "fastapi.security",
+        "description": "fastapi.security",
+        "isExtraImport": true,
+        "detail": "fastapi.security",
         "documentation": {}
     },
     {
@@ -429,142 +966,6 @@
         "description": "app.crud.user_repo",
         "isExtraImport": true,
         "detail": "app.crud.user_repo",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Iterable",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Any",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Iterable",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "List",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Dict",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Set",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
         "documentation": {}
     },
     {
@@ -592,36 +993,35 @@
         "documentation": {}
     },
     {
-        "label": "get_current_user",
-        "importPath": "app.api.dependencies",
-        "description": "app.api.dependencies",
+        "label": "TagCreate",
+        "importPath": "app.schemas.tag_schema",
+        "description": "app.schemas.tag_schema",
         "isExtraImport": true,
-        "detail": "app.api.dependencies",
+        "detail": "app.schemas.tag_schema",
         "documentation": {}
     },
     {
-        "label": "get_current_user",
-        "importPath": "app.api.dependencies",
-        "description": "app.api.dependencies",
+        "label": "TagUpdate",
+        "importPath": "app.schemas.tag_schema",
+        "description": "app.schemas.tag_schema",
         "isExtraImport": true,
-        "detail": "app.api.dependencies",
+        "detail": "app.schemas.tag_schema",
         "documentation": {}
     },
     {
-        "label": "get_db",
-        "importPath": "app.api.dependencies",
-        "description": "app.api.dependencies",
+        "label": "TagRead",
+        "importPath": "app.schemas.tag_schema",
+        "description": "app.schemas.tag_schema",
         "isExtraImport": true,
-        "detail": "app.api.dependencies",
+        "detail": "app.schemas.tag_schema",
         "documentation": {}
     },
     {
-        "label": "logging",
-        "kind": 6,
+        "label": "tag_service",
+        "importPath": "app.services.tag_service",
+        "description": "app.services.tag_service",
         "isExtraImport": true,
-        "importPath": "logging",
-        "description": "logging",
-        "detail": "logging",
+        "detail": "app.services.tag_service",
         "documentation": {}
     },
     {
@@ -689,6 +1089,103 @@
         "documentation": {}
     },
     {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "sessionmaker",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "declarative_base",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "relationship",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "selectinload",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "select",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
         "label": "select",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
@@ -698,6 +1195,14 @@
     },
     {
         "label": "delete",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "select",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
         "isExtraImport": true,
@@ -753,6 +1258,62 @@
         "documentation": {}
     },
     {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Text",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "TIMESTAMP",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "func",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
         "label": "Column",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
@@ -794,6 +1355,38 @@
     },
     {
         "label": "ForeignKey",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Column",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Integer",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "Text",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
         "isExtraImport": true,
@@ -929,6 +1522,22 @@
         "documentation": {}
     },
     {
+        "label": "Comment",
+        "importPath": "app.models.comment",
+        "description": "app.models.comment",
+        "isExtraImport": true,
+        "detail": "app.models.comment",
+        "documentation": {}
+    },
+    {
+        "label": "Comment",
+        "importPath": "app.models.comment",
+        "description": "app.models.comment",
+        "isExtraImport": true,
+        "detail": "app.models.comment",
+        "documentation": {}
+    },
+    {
         "label": "Project",
         "importPath": "app.models.project",
         "description": "app.models.project",
@@ -942,6 +1551,22 @@
         "description": "app.models.project",
         "isExtraImport": true,
         "detail": "app.models.project",
+        "documentation": {}
+    },
+    {
+        "label": "Tag",
+        "importPath": "app.models.tag",
+        "description": "app.models.tag",
+        "isExtraImport": true,
+        "detail": "app.models.tag",
+        "documentation": {}
+    },
+    {
+        "label": "Tag",
+        "importPath": "app.models.tag",
+        "description": "app.models.tag",
+        "isExtraImport": true,
+        "detail": "app.models.tag",
         "documentation": {}
     },
     {
@@ -961,55 +1586,71 @@
         "documentation": {}
     },
     {
-        "label": "relationship",
-        "importPath": "sqlalchemy.orm",
-        "description": "sqlalchemy.orm",
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "detail": "sqlalchemy.orm",
+        "detail": "__future__",
         "documentation": {}
     },
     {
-        "label": "relationship",
-        "importPath": "sqlalchemy.orm",
-        "description": "sqlalchemy.orm",
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "detail": "sqlalchemy.orm",
+        "detail": "__future__",
         "documentation": {}
     },
     {
-        "label": "relationship",
-        "importPath": "sqlalchemy.orm",
-        "description": "sqlalchemy.orm",
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "detail": "sqlalchemy.orm",
+        "detail": "__future__",
         "documentation": {}
     },
     {
-        "label": "selectinload",
-        "importPath": "sqlalchemy.orm",
-        "description": "sqlalchemy.orm",
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "detail": "sqlalchemy.orm",
+        "detail": "__future__",
         "documentation": {}
     },
     {
-        "label": "sessionmaker",
-        "importPath": "sqlalchemy.orm",
-        "description": "sqlalchemy.orm",
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "detail": "sqlalchemy.orm",
+        "detail": "__future__",
         "documentation": {}
     },
     {
-        "label": "declarative_base",
-        "importPath": "sqlalchemy.orm",
-        "description": "sqlalchemy.orm",
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
         "isExtraImport": true,
-        "detail": "sqlalchemy.orm",
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "task_tags",
+        "importPath": "app.models.association_tables",
+        "description": "app.models.association_tables",
+        "isExtraImport": true,
+        "detail": "app.models.association_tables",
         "documentation": {}
     },
     {
         "label": "task_assignees",
+        "importPath": "app.models.association_tables",
+        "description": "app.models.association_tables",
+        "isExtraImport": true,
+        "detail": "app.models.association_tables",
+        "documentation": {}
+    },
+    {
+        "label": "task_tags",
         "importPath": "app.models.association_tables",
         "description": "app.models.association_tables",
         "isExtraImport": true,
@@ -1025,43 +1666,11 @@
         "documentation": {}
     },
     {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
         "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "Field",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "BaseModel",
-        "importPath": "pydantic",
-        "description": "pydantic",
-        "isExtraImport": true,
-        "detail": "pydantic",
-        "documentation": {}
-    },
-    {
-        "label": "annotations",
-        "importPath": "__future__",
-        "description": "__future__",
-        "isExtraImport": true,
-        "detail": "__future__",
+        "detail": "datetime",
         "documentation": {}
     },
     {
@@ -1097,6 +1706,86 @@
         "documentation": {}
     },
     {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "comment_repo",
+        "importPath": "app.crud.comment_repo",
+        "description": "app.crud.comment_repo",
+        "isExtraImport": true,
+        "detail": "app.crud.comment_repo",
+        "documentation": {}
+    },
+    {
+        "label": "task_repo",
+        "importPath": "app.crud.task_repo",
+        "description": "app.crud.task_repo",
+        "isExtraImport": true,
+        "detail": "app.crud.task_repo",
+        "documentation": {}
+    },
+    {
         "label": "project_repo",
         "importPath": "app.crud.project_repo",
         "description": "app.crud.project_repo",
@@ -1105,12 +1794,11 @@
         "documentation": {}
     },
     {
-        "label": "os",
-        "kind": 6,
+        "label": "tag_repo",
+        "importPath": "app.crud.tag_repo",
+        "description": "app.crud.tag_repo",
         "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
+        "detail": "app.crud.tag_repo",
         "documentation": {}
     },
     {
@@ -1135,22 +1823,6 @@
         "description": "passlib.context",
         "isExtraImport": true,
         "detail": "passlib.context",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
-        "documentation": {}
-    },
-    {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
-        "isExtraImport": true,
-        "detail": "dotenv",
         "documentation": {}
     },
     {
@@ -1191,6 +1863,22 @@
         "description": "app.api.tasks_router",
         "isExtraImport": true,
         "detail": "app.api.tasks_router",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "importPath": "app.api.tags_router",
+        "description": "app.api.tags_router",
+        "isExtraImport": true,
+        "detail": "app.api.tags_router",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "importPath": "app.api.comments_router",
+        "description": "app.api.comments_router",
+        "isExtraImport": true,
+        "detail": "app.api.comments_router",
         "documentation": {}
     },
     {
@@ -1246,6 +1934,24 @@
         "documentation": {}
     },
     {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "app.api.comments_router",
+        "description": "app.api.comments_router",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nrouter = APIRouter()\n@router.post(\"/tasks/{task_id}/comments\", response_model=CommentRead, status_code=status.HTTP_201_CREATED)\nasync def create_comment(\n    task_id: int = Path(..., ge=1),\n    payload: CommentCreate = Body(...),\n    db: AsyncSession = Depends(get_db),\n    current_user=Depends(get_current_user),\n):\n    \"\"\"",
+        "detail": "app.api.comments_router",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "app.api.comments_router",
+        "description": "app.api.comments_router",
+        "peekOfCode": "router = APIRouter()\n@router.post(\"/tasks/{task_id}/comments\", response_model=CommentRead, status_code=status.HTTP_201_CREATED)\nasync def create_comment(\n    task_id: int = Path(..., ge=1),\n    payload: CommentCreate = Body(...),\n    db: AsyncSession = Depends(get_db),\n    current_user=Depends(get_current_user),\n):\n    \"\"\"\n    Create a comment on a task. The task_id in path must match payload.task_id (for safety).",
+        "detail": "app.api.comments_router",
+        "documentation": {}
+    },
+    {
         "label": "oauth2_scheme",
         "kind": 5,
         "importPath": "app.api.dependencies",
@@ -1270,6 +1976,24 @@
         "description": "app.api.projects_router",
         "peekOfCode": "router = APIRouter(prefix=\"/projects\", tags=[\"Projects\"])\n# Create a new project\n@router.post(\"/\", response_model=ProjectOut)\nasync def create_project(payload: ProjectCreate, db: AsyncSession = Depends(get_db), user=Depends(get_current_user)):\n    return await project_service.create_project(db, name=payload.name, description=payload.description)\n# List all projects\n@router.get(\"/\", response_model=List[ProjectOut])\nasync def list_projects(skip: int = 0, limit: int = 100, db: AsyncSession = Depends(get_db), user=Depends(get_current_user)):\n    return await project_service.list_projects(db, skip=skip, limit=limit)\n# --- Edit project (partial update) ---",
         "detail": "app.api.projects_router",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "app.api.tags_router",
+        "description": "app.api.tags_router",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nrouter = APIRouter()\n@router.post(\"/\", response_model=TagRead, status_code=status.HTTP_201_CREATED)\nasync def create_tag(payload: TagCreate = Body(...), db:AsyncSession= Depends(get_db), current_user = Depends(get_current_user)):\n    \"\"\"\n    Create a new tag. (Requires authentication.)\n    \"\"\"\n    try:\n        tag = await tag_service.create_tag(db, name = payload.name, color= payload.color, description=payload.description)\n        return TagRead.model_validate(tag, from_attributes=True)",
+        "detail": "app.api.tags_router",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "app.api.tags_router",
+        "description": "app.api.tags_router",
+        "peekOfCode": "router = APIRouter()\n@router.post(\"/\", response_model=TagRead, status_code=status.HTTP_201_CREATED)\nasync def create_tag(payload: TagCreate = Body(...), db:AsyncSession= Depends(get_db), current_user = Depends(get_current_user)):\n    \"\"\"\n    Create a new tag. (Requires authentication.)\n    \"\"\"\n    try:\n        tag = await tag_service.create_tag(db, name = payload.name, color= payload.color, description=payload.description)\n        return TagRead.model_validate(tag, from_attributes=True)\n    except ValueError as exc:",
+        "detail": "app.api.tags_router",
         "documentation": {}
     },
     {
@@ -1300,6 +2024,60 @@
         "documentation": {}
     },
     {
+        "label": "DATABASE_URL",
+        "kind": 5,
+        "importPath": "app.core.database",
+        "description": "app.core.database",
+        "peekOfCode": "DATABASE_URL = os.getenv(\"DATABASE_URL\")\nif not DATABASE_URL:\n    raise ValueError(\"DATABASE_URL is not set in the .env file\")\n# Create async SQLAlchemy engine\nengine = create_async_engine(\n    DATABASE_URL,\n    echo=True,  # Set to False in production\n    future=True\n)\n# Async session factory",
+        "detail": "app.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "engine",
+        "kind": 5,
+        "importPath": "app.core.database",
+        "description": "app.core.database",
+        "peekOfCode": "engine = create_async_engine(\n    DATABASE_URL,\n    echo=True,  # Set to False in production\n    future=True\n)\n# Async session factory\nasync_session = sessionmaker(\n    bind=engine,\n    expire_on_commit=False,\n    class_=AsyncSession",
+        "detail": "app.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "async_session",
+        "kind": 5,
+        "importPath": "app.core.database",
+        "description": "app.core.database",
+        "peekOfCode": "async_session = sessionmaker(\n    bind=engine,\n    expire_on_commit=False,\n    class_=AsyncSession\n)\n# Base class for models\nBase = declarative_base()\n# Dependency to inject DB session into FastAPI routes\nasync def get_db():\n    async with async_session() as session:",
+        "detail": "app.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "Base",
+        "kind": 5,
+        "importPath": "app.core.database",
+        "description": "app.core.database",
+        "peekOfCode": "Base = declarative_base()\n# Dependency to inject DB session into FastAPI routes\nasync def get_db():\n    async with async_session() as session:\n        try:\n            yield session\n        except:\n            await session.rollback()\n            raise",
+        "detail": "app.core.database",
+        "documentation": {}
+    },
+    {
+        "label": "CommentRepo",
+        "kind": 6,
+        "importPath": "app.crud.comment_repo",
+        "description": "app.crud.comment_repo",
+        "peekOfCode": "class CommentRepo:\n    async def get(self, db:AsyncSession, comment_id:int) -> Optional[Comment]:\n        q= select(Comment).where(Comment.id==comment_id)\n        result= await db.execute(q)\n        return result.scalars().one_or_none()\n    async def list_by_task(self, db:AsyncSession, task_id:int, skip:int=0, limit:int=100)-> list[Comment]:\n        q= select(Comment).where(Comment.task_id == task_id).order_by(Comment.created_at).offset(skip).limit(limit)\n        result= await db.execute(q)\n        return result.scalars().all()\n    async def create(self, db:AsyncSession,*, task_id:int, user_id:int | None=None, content:str)->Comment:",
+        "detail": "app.crud.comment_repo",
+        "documentation": {}
+    },
+    {
+        "label": "comment_repo",
+        "kind": 5,
+        "importPath": "app.crud.comment_repo",
+        "description": "app.crud.comment_repo",
+        "peekOfCode": "comment_repo = CommentRepo()",
+        "detail": "app.crud.comment_repo",
+        "documentation": {}
+    },
+    {
         "label": "ProjectRepository",
         "kind": 6,
         "importPath": "app.crud.project_repo",
@@ -1315,6 +2093,24 @@
         "description": "app.crud.project_repo",
         "peekOfCode": "project_repo = ProjectRepository()",
         "detail": "app.crud.project_repo",
+        "documentation": {}
+    },
+    {
+        "label": "TagRepo",
+        "kind": 6,
+        "importPath": "app.crud.tag_repo",
+        "description": "app.crud.tag_repo",
+        "peekOfCode": "class TagRepo:\n    async def get(self, db: AsyncSession, tag_id: int) -> Optional[Tag]:\n        q = select(Tag).where(Tag.id == tag_id)\n        result = await db.execute(q)\n        # correct API: use scalars().one_or_none() to retrieve an ORM object or None\n        return result.scalars().one_or_none()\n    async def get_by_name(self, db: AsyncSession, name: str) -> Optional[Tag]:\n        q = select(Tag).where(Tag.name == name)\n        result = await db.execute(q)\n        return result.scalars().one_or_none()",
+        "detail": "app.crud.tag_repo",
+        "documentation": {}
+    },
+    {
+        "label": "tag_repo",
+        "kind": 5,
+        "importPath": "app.crud.tag_repo",
+        "description": "app.crud.tag_repo",
+        "peekOfCode": "tag_repo = TagRepo()",
+        "detail": "app.crud.tag_repo",
         "documentation": {}
     },
     {
@@ -1358,8 +2154,26 @@
         "kind": 5,
         "importPath": "app.models.association_tables",
         "description": "app.models.association_tables",
-        "peekOfCode": "task_assignees = Table(\n    \"task_assignees\",\n    Base.metadata,\n    Column(\"task_id\", BigInteger, ForeignKey(\"tasks.id\", ondelete=\"CASCADE\"), primary_key=True),\n    Column(\"user_id\", BigInteger, ForeignKey(\"users.id\", ondelete=\"CASCADE\"), primary_key=True),\n    # you can add columns like assigned_at or assigned_by here if you need them\n)",
+        "peekOfCode": "task_assignees = Table(\n    \"task_assignees\",\n    Base.metadata,\n    Column(\"task_id\", BigInteger, ForeignKey(\"tasks.id\", ondelete=\"CASCADE\"), primary_key=True),\n    Column(\"user_id\", BigInteger, ForeignKey(\"users.id\", ondelete=\"CASCADE\"), primary_key=True),\n    # you can add columns like assigned_at or assigned_by here if you need them\n)\n# Association table: tasks <-> tags\ntask_tags = Table(\n    \"task_tags\",",
         "detail": "app.models.association_tables",
+        "documentation": {}
+    },
+    {
+        "label": "task_tags",
+        "kind": 5,
+        "importPath": "app.models.association_tables",
+        "description": "app.models.association_tables",
+        "peekOfCode": "task_tags = Table(\n    \"task_tags\",\n    Base.metadata,\n    Column(\"task_id\", BigInteger, ForeignKey(\"tasks.id\", ondelete=\"CASCADE\"), primary_key=True),\n    Column(\"tag_id\", Integer, ForeignKey(\"tags.id\", ondelete=\"CASCADE\"), primary_key=True),\n)",
+        "detail": "app.models.association_tables",
+        "documentation": {}
+    },
+    {
+        "label": "Comment",
+        "kind": 6,
+        "importPath": "app.models.comment",
+        "description": "app.models.comment",
+        "peekOfCode": "class Comment(Base):\n    __tablename__ = \"comments\"\n    id = Column(Integer, primary_key=True, index=True)\n    task_id = Column(Integer, ForeignKey(\"tasks.id\", ondelete=\"CASCADE\"), nullable=False, index=True)\n    user_id = Column(Integer, ForeignKey(\"users.id\", ondelete=\"SET NULL\"), nullable=True, index=True)\n    content = Column(Text, nullable=False)\n    created_at = Column(TIMESTAMP(timezone=True), server_default=func.now(), nullable=False)\n    updated_at = Column(TIMESTAMP(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)   \n    # relationships\\\n    task = relationship(\"Task\", back_populates=\"comments\", lazy=\"select\")",
+        "detail": "app.models.comment",
         "documentation": {}
     },
     {
@@ -1369,6 +2183,15 @@
         "description": "app.models.project",
         "peekOfCode": "class Project(Base):\n    __tablename__ = \"projects\"\n    id = Column(BigInteger, primary_key=True, index=True)\n    name = Column(Text, nullable=False)\n    description = Column(Text, nullable=True)\n    created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())\n    updated_at = Column(TIMESTAMP(timezone=True), server_default=func.now(), onupdate=func.now())\n    # one-to-many: project -> tasks\n    tasks = relationship(\"Task\", back_populates=\"project\", cascade=\"all, delete-orphan\", lazy=\"select\")\n    def __repr__(self):",
         "detail": "app.models.project",
+        "documentation": {}
+    },
+    {
+        "label": "Tag",
+        "kind": 6,
+        "importPath": "app.models.tag",
+        "description": "app.models.tag",
+        "peekOfCode": "class Tag(Base):\n    __tablename__ = \"tags\"\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String(100), nullable=False, index=True, unique=True)\n    color = Column(String(32), nullable=True)  # e.g., hex color code\n    description = Column(Text, nullable=True)\n    # relationship back to Task (Task must reference this secondary too)\n    tasks= relationship(\"Task\", secondary=task_tags, back_populates=\"tags\", lazy=\"select\")\n    def __repr__(self) -> str:\n        return f\"<Tag id={self.id} name={self.name!r}>\"",
+        "detail": "app.models.tag",
         "documentation": {}
     },
     {
@@ -1387,6 +2210,33 @@
         "description": "app.models.user",
         "peekOfCode": "class User(Base):\n    __tablename__ = \"users\"\n    id = Column(BigInteger, primary_key=True, index=True)\n    email = Column(Text, unique=True, nullable=False, index=True)\n    name = Column(Text, nullable=True)\n    password_hash = Column(Text, nullable=False)\n    created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())\n    updated_at = Column(TIMESTAMP(timezone=True), server_default=func.now(), onupdate=func.now())\n    # tasks that this user created (one-to-many)\n    created_tasks = relationship(\"Task\", back_populates=\"creator\", lazy=\"select\")",
         "detail": "app.models.user",
+        "documentation": {}
+    },
+    {
+        "label": "CommentCreate",
+        "kind": 6,
+        "importPath": "app.schemas.comment_schema",
+        "description": "app.schemas.comment_schema",
+        "peekOfCode": "class CommentCreate(BaseModel):\n    task_id:int\n    content:str\n    model_config = {\"extra\": \"forbid\"}\nclass CommentRead(BaseModel):\n    id:int\n    task_id:int\n    user_id:Optional[int]=None\n    content:str\n    created_at:Optional[datetime]=None",
+        "detail": "app.schemas.comment_schema",
+        "documentation": {}
+    },
+    {
+        "label": "CommentRead",
+        "kind": 6,
+        "importPath": "app.schemas.comment_schema",
+        "description": "app.schemas.comment_schema",
+        "peekOfCode": "class CommentRead(BaseModel):\n    id:int\n    task_id:int\n    user_id:Optional[int]=None\n    content:str\n    created_at:Optional[datetime]=None\n    updated_at:Optional[datetime]=None\n    # optional: include author summary later (id/name/email) if you want nested author info\n    model_config = {\"from_attributes\": True}\nclass CommentUpdate(BaseModel):",
+        "detail": "app.schemas.comment_schema",
+        "documentation": {}
+    },
+    {
+        "label": "CommentUpdate",
+        "kind": 6,
+        "importPath": "app.schemas.comment_schema",
+        "description": "app.schemas.comment_schema",
+        "peekOfCode": "class CommentUpdate(BaseModel):\n    content: Optional[str] = None\n    model_config = {\"extra\": \"forbid\"}",
+        "detail": "app.schemas.comment_schema",
         "documentation": {}
     },
     {
@@ -1426,6 +2276,33 @@
         "documentation": {}
     },
     {
+        "label": "TagCreate",
+        "kind": 6,
+        "importPath": "app.schemas.tag_schema",
+        "description": "app.schemas.tag_schema",
+        "peekOfCode": "class TagCreate(BaseModel):\n    name:str\n    color:Optional[str]=None        \n    description:Optional[str]=None\n    model_config = {\"extra\": \"forbid\"}\nclass TagRead(BaseModel):\n    id:int\n    name:str\n    color:Optional[str]=None\n    description:Optional[str]=None",
+        "detail": "app.schemas.tag_schema",
+        "documentation": {}
+    },
+    {
+        "label": "TagRead",
+        "kind": 6,
+        "importPath": "app.schemas.tag_schema",
+        "description": "app.schemas.tag_schema",
+        "peekOfCode": "class TagRead(BaseModel):\n    id:int\n    name:str\n    color:Optional[str]=None\n    description:Optional[str]=None\n    model_config = {\"from_attributes\": True}\nclass TagUpdate(BaseModel):\n    name: Optional[str] = None\n    color: Optional[str] = None\n    description: Optional[str] = None",
+        "detail": "app.schemas.tag_schema",
+        "documentation": {}
+    },
+    {
+        "label": "TagUpdate",
+        "kind": 6,
+        "importPath": "app.schemas.tag_schema",
+        "description": "app.schemas.tag_schema",
+        "peekOfCode": "class TagUpdate(BaseModel):\n    name: Optional[str] = None\n    color: Optional[str] = None\n    description: Optional[str] = None\n    model_config = {\"extra\": \"forbid\"}",
+        "detail": "app.schemas.tag_schema",
+        "documentation": {}
+    },
+    {
         "label": "TaskCreate",
         "kind": 6,
         "importPath": "app.schemas.task_schema",
@@ -1439,7 +2316,7 @@
         "kind": 6,
         "importPath": "app.schemas.task_schema",
         "description": "app.schemas.task_schema",
-        "peekOfCode": "class TaskReadBase(BaseModel):\n    id: int\n    title: str\n    description: Optional[str] = None\n    project_id: int\n    parent_task_id: Optional[int] = None\n    assignee_ids: List[int] = Field(default_factory=list)\n    due_at: Optional[datetime] = None\n    start_at: Optional[datetime] = None\n    estimated_minutes: Optional[int] = None",
+        "peekOfCode": "class TaskReadBase(BaseModel):\n    id: int\n    title: str\n    description: Optional[str] = None\n    project_id: int\n    parent_task_id: Optional[int] = None\n    assignee_ids: List[int] = Field(default_factory=list)\n    due_at: Optional[datetime] = None\n    tag_ids: List[int] = Field(default_factory=list)   \n    comments_count: Optional[int] = None ",
         "detail": "app.schemas.task_schema",
         "documentation": {}
     },
@@ -1516,6 +2393,24 @@
         "documentation": {}
     },
     {
+        "label": "CommentService",
+        "kind": 6,
+        "importPath": "app.services.comment_service",
+        "description": "app.services.comment_service",
+        "peekOfCode": "class CommentService:\n    async def create_comment(self, db: AsyncSession, creator_user_id: int, *, task_id: int, content: str) -> Comment:\n        # Validation: task must exist\n        task = await task_repo.get(db, task_id)\n        if not task:\n            raise ValueError(f\"Task not found (id={task_id})\")\n        comment = await comment_repo.create(db, task_id=task_id, user_id=creator_user_id, content=content)\n        await db.commit()\n        await db.refresh(comment)\n        return comment",
+        "detail": "app.services.comment_service",
+        "documentation": {}
+    },
+    {
+        "label": "comment_service",
+        "kind": 5,
+        "importPath": "app.services.comment_service",
+        "description": "app.services.comment_service",
+        "peekOfCode": "comment_service = CommentService()",
+        "detail": "app.services.comment_service",
+        "documentation": {}
+    },
+    {
         "label": "ProjectService",
         "kind": 6,
         "importPath": "app.services.project_service",
@@ -1531,6 +2426,24 @@
         "description": "app.services.project_service",
         "peekOfCode": "project_service = ProjectService()",
         "detail": "app.services.project_service",
+        "documentation": {}
+    },
+    {
+        "label": "TagService",
+        "kind": 6,
+        "importPath": "app.services.tag_service",
+        "description": "app.services.tag_service",
+        "peekOfCode": "class TagService:\n    async def create_tag(self, db:AsyncSession, *, name : str, color:Optional[str]=None, description:Optional[str]=None)->Tag:\n        # Validation: name must be unique (case-sensitive here; adjust if you want case-insensitive)\n        existing = await tag_repo.get_by_name(db, name)\n        if existing:\n            raise ValueError(f\"Tag with name {name!r} already exists.\")\n        tag = await tag_repo.create(db, name=name, color=color, description=description)\n        await db.commit()\n        await db.refresh(tag)\n        return tag",
+        "detail": "app.services.tag_service",
+        "documentation": {}
+    },
+    {
+        "label": "tag_service",
+        "kind": 5,
+        "importPath": "app.services.tag_service",
+        "description": "app.services.tag_service",
+        "peekOfCode": "tag_service = TagService()",
+        "detail": "app.services.tag_service",
         "documentation": {}
     },
     {
@@ -1621,42 +2534,6 @@
         "description": "app.main",
         "peekOfCode": "origins = [\"*\"]\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=origins,\n    allow_credentials=True,\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\n# -------------- ROUTERS / API --------------\n# IMPORTANT: Be careful with prefixes — see note below.",
         "detail": "app.main",
-        "documentation": {}
-    },
-    {
-        "label": "DATABASE_URL",
-        "kind": 5,
-        "importPath": "core.database",
-        "description": "core.database",
-        "peekOfCode": "DATABASE_URL = os.getenv(\"DATABASE_URL\")\nif not DATABASE_URL:\n    raise ValueError(\"DATABASE_URL is not set in the .env file\")\n# Create async SQLAlchemy engine\nengine = create_async_engine(\n    DATABASE_URL,\n    echo=True,  # Set to False in production\n    future=True\n)\n# Async session factory",
-        "detail": "core.database",
-        "documentation": {}
-    },
-    {
-        "label": "engine",
-        "kind": 5,
-        "importPath": "core.database",
-        "description": "core.database",
-        "peekOfCode": "engine = create_async_engine(\n    DATABASE_URL,\n    echo=True,  # Set to False in production\n    future=True\n)\n# Async session factory\nasync_session = sessionmaker(\n    bind=engine,\n    expire_on_commit=False,\n    class_=AsyncSession",
-        "detail": "core.database",
-        "documentation": {}
-    },
-    {
-        "label": "async_session",
-        "kind": 5,
-        "importPath": "core.database",
-        "description": "core.database",
-        "peekOfCode": "async_session = sessionmaker(\n    bind=engine,\n    expire_on_commit=False,\n    class_=AsyncSession\n)\n# Base class for models\nBase = declarative_base()\n# Dependency to inject DB session into FastAPI routes\nasync def get_db():\n    async with async_session() as session:",
-        "detail": "core.database",
-        "documentation": {}
-    },
-    {
-        "label": "Base",
-        "kind": 5,
-        "importPath": "core.database",
-        "description": "core.database",
-        "peekOfCode": "Base = declarative_base()\n# Dependency to inject DB session into FastAPI routes\nasync def get_db():\n    async with async_session() as session:\n        try:\n            yield session\n        except:\n            await session.rollback()\n            raise",
-        "detail": "core.database",
         "documentation": {}
     },
     {

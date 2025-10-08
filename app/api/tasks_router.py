@@ -5,7 +5,7 @@ import logging
 from fastapi import APIRouter, Depends, HTTPException, Path, Body, status, Query, Response
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from core.database import get_db
+from app.core.database import get_db
 from app.schemas.task_schema import TaskCreate, TaskUpdate, TaskOut
 from app.services.task_service import task_service
 from app.api.dependencies import get_current_user

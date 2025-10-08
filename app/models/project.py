@@ -1,7 +1,7 @@
 # app/models/project.py
 from sqlalchemy import Column, BigInteger, Text, TIMESTAMP, func, ForeignKey
 from sqlalchemy.orm import relationship
-from core.database import Base
+from app.core.database import Base
 
 class Project(Base):
     __tablename__ = "projects"

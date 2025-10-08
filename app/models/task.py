@@ -1,4 +1,7 @@
 # app/models/task.py
+from __future__ import annotations
+from typing import List
+
 from sqlalchemy import (
     Column,
     BigInteger,
@@ -12,8 +15,9 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import relationship
 
-from core.database import Base
-from app.models.association_tables import task_assignees
+from app.core.database import Base
+from app.models.association_tables import task_assignees, task_tags
+
 
 class Task(Base):
     __tablename__ = "tasks"
@@ -53,23 +57,60 @@ class Task(Base):
         lazy="select",
     )
 
+    # tags many-to-many (make sure Tag.tasks has back_populates="tags")
+    tags = relationship(
+        "Tag",
+        secondary=task_tags,
+        back_populates="tasks",
+        lazy="select",
+    )
+
+    # comments one-to-many (make sure Comment.task has back_populates="comments" or "task")
+    comments = relationship(
+        "Comment",
+        back_populates="task",
+        cascade="all, delete-orphan",
+        lazy="select",
+    )
+
     # self-referential relationship: parent and subtasks
     parent = relationship("Task", remote_side=[id], backref="subtasks")
 
     def __repr__(self):
         return f"<Task id={self.id} title={self.title!r}>"
 
-    # ---------- NEW: expose assignee IDs so pydantic can read them directly ----------
+    # ---------- helper properties for safe pydantic serialization ----------
     @property
-    def assignee_ids(self) -> list[int]:
+    def assignee_ids(self) -> List[int]:
         """
         Return list of user ids for assignees.
-        This lets Pydantic (from_attributes=True) read `assignee_ids` directly.
+        This lets Pydantic (from_attributes=True) read `assignee_ids` directly
+        without triggering lazy SQL loads.
         """
-        # guard: assignees may be None or not yet loaded
         if self.assignees is None:
             return []
         return [u.id for u in self.assignees]
+
+    @property
+    def tag_ids(self) -> List[int]:
+        """
+        Return list of tag ids attached to the task.
+        Used to avoid lazy-loading full Tag objects during serialization.
+        """
+        if self.tags is None:
+            return []
+        return [t.id for t in self.tags]
+
+    @property
+    def comments_count(self) -> int:
+        """
+        Return number of comments if relationship is loaded; otherwise returns 0.
+        If you want exact count without loading comments, query COUNT in service instead.
+        """
+        try:
+            return len(self.comments or [])
+        except Exception:
+            return 0
 
     def to_dict(self) -> dict:
         """
@@ -82,6 +123,8 @@ class Task(Base):
             "project_id": self.project_id,
             "parent_task_id": self.parent_task_id,
             "assignee_ids": self.assignee_ids,
+            "tag_ids": self.tag_ids,
+            "comments_count": self.comments_count,
             "due_at": self.due_at,
             "start_at": self.start_at,
             "estimated_minutes": self.estimated_minutes,

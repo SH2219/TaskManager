@@ -1,7 +1,7 @@
 # app/models/user.py
 from sqlalchemy import Column, BigInteger, Text, TIMESTAMP, func
 from sqlalchemy.orm import relationship
-from core.database import Base
+from app.core.database import Base
 from app.models.association_tables import task_assignees  # import the Table object
 
 class User(Base):

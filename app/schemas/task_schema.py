@@ -26,6 +26,8 @@ class TaskReadBase(BaseModel):
     parent_task_id: Optional[int] = None
     assignee_ids: List[int] = Field(default_factory=list)
     due_at: Optional[datetime] = None
+    tag_ids: List[int] = Field(default_factory=list)   
+    comments_count: Optional[int] = None 
     start_at: Optional[datetime] = None
     estimated_minutes: Optional[int] = None
     version: Optional[int] = None

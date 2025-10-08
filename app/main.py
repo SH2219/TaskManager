@@ -9,12 +9,15 @@ from contextlib import asynccontextmanager
 load_dotenv()
 
 # import DB Base and async engine (these names must match your database module)
-from core.database import Base, engine
+from app.core.database import Base, engine
 
 # import routers (these should export an APIRouter object called `router`)
 from app.api.users_router import router as users_router
 from app.api.projects_router import router as projects_router
 from app.api.tasks_router import router as tasks_router
+from app.api.tags_router import router as tags_router
+from app.api.comments_router import router as comments_router
+
 
 # Lifespan handler — runs once on startup, once on shutdown
 @asynccontextmanager
@@ -49,6 +52,8 @@ app.add_middleware(
 app.include_router(users_router, prefix="/api/users", tags=["Users"])
 app.include_router(projects_router, prefix="/api/projects", tags=["Projects"])
 app.include_router(tasks_router, prefix="/api/tasks", tags=["Tasks"])
+app.include_router(tags_router, prefix="/api", tags=["Tags"])
+app.include_router(comments_router, prefix="/api", tags=["Comments"])
 
 # optional root route
 @app.get("/", include_in_schema=False)
