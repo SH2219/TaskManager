@@ -5,5 +5,7 @@ from .project import Project
 from .task import Task
 from .tag import Tag
 from .comment import Comment
+from .progress import ProgressUpdate
+from .projectmembers import ProjectMembers
 
-__all__ = ["User", "Project", "Task", "Tag", "Comment"]
+__all__ = ["User", "Project", "Task", "Tag", "Comment", "ProgressUpdate", "ProjectMembers"]
