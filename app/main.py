@@ -17,8 +17,8 @@ from app.api.projects_router import router as projects_router
 from app.api.tasks_router import router as tasks_router
 from app.api.tags_router import router as tags_router
 from app.api.comments_router import router as comments_router
-
-
+from app.api.progress_router import router as progress_router
+# from app.api.projectmembers_router import router as projectmembers_router
 # Lifespan handler — runs once on startup, once on shutdown
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -54,6 +54,9 @@ app.include_router(projects_router, prefix="/api/projects", tags=["Projects"])
 app.include_router(tasks_router, prefix="/api/tasks", tags=["Tasks"])
 app.include_router(tags_router, prefix="/api", tags=["Tags"])
 app.include_router(comments_router, prefix="/api", tags=["Comments"])
+
+app.include_router(progress_router, prefix="/api", tags=["Progress"])
+# app.include_router(projectmembers_router, prefix="/api", tags=["ProjectMembers"])
 
 # optional root route
 @app.get("/", include_in_schema=False)

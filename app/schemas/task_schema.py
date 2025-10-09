@@ -33,6 +33,10 @@ class TaskReadBase(BaseModel):
     version: Optional[int] = None
     created_at: Optional[datetime] = None
     updated_at: Optional[datetime] = None
+    
+    # progress fields
+    progress_percentage: Optional[int] = 0
+    progress_history_count: Optional[int] = 0
 
     # allow reading from SQLAlchemy object attributes
     model_config = {"from_attributes": True}
