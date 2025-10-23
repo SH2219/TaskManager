@@ -1,4 +1,3 @@
-# app/models/task.py
 from __future__ import annotations
 from typing import List
 
@@ -41,7 +40,7 @@ class Task(Base):
     estimated_minutes = Column(Integer, nullable=True)
 
     # parent pointer for subtasks - references same table
-    parent_task_id = Column(BigInteger, ForeignKey("tasks.id", ondelete="SET NULL"), nullable=True)
+    parent_task_id = Column(BigInteger, ForeignKey("tasks.id", ondelete="SET NULL"), nullable=True, index=True)
 
     created_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
     updated_at = Column(TIMESTAMP(timezone=True), server_default=func.now(), onupdate=func.now())
@@ -73,8 +72,26 @@ class Task(Base):
         lazy="select",
     )
 
-    # self-referential relationship: parent and subtasks
-    parent = relationship("Task", remote_side=[id], backref="subtasks")
+    # Explicit self-referential relationship: parent <-> subtasks
+    # - `parent` is a single parent Task
+    # - `subtasks` is a list of children Tasks
+    # Use foreign_keys to be explicit and back_populates for clarity.
+    parent = relationship(
+        "Task",
+        remote_side=[id],
+        back_populates="subtasks",
+        lazy="select",
+        foreign_keys=[parent_task_id],
+    )
+
+    subtasks = relationship(
+        "Task",
+        back_populates="parent",
+        cascade="all, delete-orphan",
+        lazy="select",
+        foreign_keys=[parent_task_id],
+        order_by="Task.id",
+    )
 
     # progress percentage on the task (0 to 100). Use text("0") server_default for DB compatibility.
     progress_percentage = Column(Integer, nullable=False, server_default=text("0"))
@@ -93,27 +110,37 @@ class Task(Base):
     # ---------- helper properties for safe pydantic serialization ----------
     @property
     def assignee_ids(self) -> List[int]:
-        if self.assignees is None:
+        """
+        Return list of assignee ids without triggering lazy-load IO when the relationship
+        is not present on the instance. If the relationship was not loaded, return an
+        empty list (caller should ensure eager-loading when real values are needed).
+        """
+        if "assignees" not in self.__dict__ or self.assignees is None:
             return []
         return [u.id for u in self.assignees]
 
     @property
     def tag_ids(self) -> List[int]:
-        if self.tags is None:
+        """Same pattern as assignee_ids: avoid triggering lazy loads by checking __dict__."""
+        if "tags" not in self.__dict__ or self.tags is None:
             return []
         return [t.id for t in self.tags]
 
     @property
     def comments_count(self) -> int:
         try:
-            return len(self.comments or [])
+            if "comments" not in self.__dict__ or self.comments is None:
+                return 0
+            return len(self.comments)
         except Exception:
             return 0
 
     @property
     def progress_history_count(self) -> int:
         try:
-            return len(self.progress_updates or [])
+            if "progress_updates" not in self.__dict__ or self.progress_updates is None:
+                return 0
+            return len(self.progress_updates)
         except Exception:
             return 0
 

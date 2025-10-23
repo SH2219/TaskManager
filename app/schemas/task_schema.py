@@ -14,10 +14,10 @@ class TaskCreate(BaseModel):
     start_at: Optional[datetime] = None
     estimated_minutes: Optional[int] = None
 
-    # forbid extra fields on creation payloads
-    model_config = {"extra": "forbid"}
-
-
+    model_config = {
+        "extra": "forbid",      # forbids extra fields
+        "from_attributes": True # allows reading from ORM objects
+    }
 class TaskReadBase(BaseModel):
     id: int
     title: str
@@ -39,7 +39,10 @@ class TaskReadBase(BaseModel):
     progress_history_count: Optional[int] = 0
 
     # allow reading from SQLAlchemy object attributes
-    model_config = {"from_attributes": True}
+    model_config = {
+        "extra": "forbid",      # forbids extra fields
+        "from_attributes": True # allows reading from ORM objects
+    }
 
 
 class TaskNested(TaskReadBase):
@@ -56,7 +59,10 @@ class TaskUpdate(BaseModel):
     estimated_minutes: Optional[int] = None
     version: Optional[int] = None
 
-    model_config = {"from_attributes": True}
+    model_config = {
+        "extra": "forbid",      # forbids extra fields
+        "from_attributes": True # allows reading from ORM objects
+    }
 
 
 class TaskRead(TaskReadBase):

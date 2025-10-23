@@ -50,8 +50,8 @@ app.add_middleware(
 # -------------- ROUTERS / API --------------
 # IMPORTANT: Be careful with prefixes — see note below.
 app.include_router(users_router, prefix="/api/users", tags=["Users"])
-app.include_router(projects_router, prefix="/api/projects", tags=["Projects"])
-app.include_router(tasks_router, prefix="/api/tasks", tags=["Tasks"])
+app.include_router(projects_router, prefix="/api", tags=["Projects"])
+app.include_router(tasks_router, prefix="/api", tags=["Tasks"])
 app.include_router(tags_router, prefix="/api", tags=["Tags"])
 app.include_router(comments_router, prefix="/api", tags=["Comments"])
 

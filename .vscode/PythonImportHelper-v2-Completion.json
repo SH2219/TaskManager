@@ -80,6 +80,22 @@
         "documentation": {}
     },
     {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "Optional",
         "importPath": "typing",
         "description": "typing",
@@ -169,6 +185,22 @@
     },
     {
         "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -401,6 +433,30 @@
     },
     {
         "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
@@ -801,11 +857,43 @@
         "documentation": {}
     },
     {
+        "label": "Path",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Query",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Body",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
         "label": "FastAPI",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
         "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "AsyncSession",
+        "importPath": "sqlalchemy.ext.asyncio",
+        "description": "sqlalchemy.ext.asyncio",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.ext.asyncio",
         "documentation": {}
     },
     {
@@ -1225,6 +1313,22 @@
         "documentation": {}
     },
     {
+        "label": "get_db",
+        "importPath": "app.api.dependencies",
+        "description": "app.api.dependencies",
+        "isExtraImport": true,
+        "detail": "app.api.dependencies",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "importPath": "app.api.dependencies",
+        "description": "app.api.dependencies",
+        "isExtraImport": true,
+        "detail": "app.api.dependencies",
+        "documentation": {}
+    },
+    {
         "label": "OAuth2PasswordBearer",
         "importPath": "fastapi.security",
         "description": "fastapi.security",
@@ -1254,6 +1358,14 @@
         "description": "app.services.user_service",
         "isExtraImport": true,
         "detail": "app.services.user_service",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "app.models.user",
+        "description": "app.models.user",
+        "isExtraImport": true,
+        "detail": "app.models.user",
         "documentation": {}
     },
     {
@@ -1490,6 +1602,38 @@
     },
     {
         "label": "TokenOut",
+        "importPath": "app.schemas.user_schema",
+        "description": "app.schemas.user_schema",
+        "isExtraImport": true,
+        "detail": "app.schemas.user_schema",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreate",
+        "importPath": "app.schemas.user_schema",
+        "description": "app.schemas.user_schema",
+        "isExtraImport": true,
+        "detail": "app.schemas.user_schema",
+        "documentation": {}
+    },
+    {
+        "label": "UserOut",
+        "importPath": "app.schemas.user_schema",
+        "description": "app.schemas.user_schema",
+        "isExtraImport": true,
+        "detail": "app.schemas.user_schema",
+        "documentation": {}
+    },
+    {
+        "label": "TokenOut",
+        "importPath": "app.schemas.user_schema",
+        "description": "app.schemas.user_schema",
+        "isExtraImport": true,
+        "detail": "app.schemas.user_schema",
+        "documentation": {}
+    },
+    {
+        "label": "UserUpdate",
         "importPath": "app.schemas.user_schema",
         "description": "app.schemas.user_schema",
         "isExtraImport": true,
@@ -2787,6 +2931,15 @@
         "documentation": {}
     },
     {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "app.api.users_router",
+        "description": "app.api.users_router",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nrouter = APIRouter()  # <--- NO prefix here\n@router.post(\"/register\", response_model=UserOut, status_code=status.HTTP_201_CREATED)\nasync def register(payload: UserCreate, db=Depends(get_db)):\n    user = await user_service.create_user(db=db, email=payload.email, password=payload.password, name=payload.name)\n    print(\"Created user:\", user.id)\n    return user\n@router.post(\"/login\", response_model=TokenOut)\nasync def login(form_data: OAuth2PasswordRequestForm = Depends(), db=Depends(get_db)):\n    # OAuth2 form uses 'username' for email",
+        "detail": "app.api.users_router",
+        "documentation": {}
+    },
+    {
         "label": "router",
         "kind": 5,
         "importPath": "app.api.users_router",
@@ -3187,7 +3340,7 @@
         "kind": 6,
         "importPath": "app.schemas.task_schema",
         "description": "app.schemas.task_schema",
-        "peekOfCode": "class TaskCreate(BaseModel):\n    title: str\n    description: Optional[str] = None\n    project_id: int\n    parent_task_id: Optional[int] = Field(default=None, description=\"Optional. Only provide for subtasks\")\n    assignee_ids: Optional[List[int]] = Field(default_factory=list)\n    due_at: Optional[datetime] = None\n    start_at: Optional[datetime] = None\n    estimated_minutes: Optional[int] = None\n    # forbid extra fields on creation payloads",
+        "peekOfCode": "class TaskCreate(BaseModel):\n    title: str\n    description: Optional[str] = None\n    project_id: int\n    parent_task_id: Optional[int] = Field(default=None, description=\"Optional. Only provide for subtasks\")\n    assignee_ids: Optional[List[int]] = Field(default_factory=list)\n    due_at: Optional[datetime] = None\n    start_at: Optional[datetime] = None\n    estimated_minutes: Optional[int] = None\n    model_config = {",
         "detail": "app.schemas.task_schema",
         "documentation": {}
     },
@@ -3214,7 +3367,7 @@
         "kind": 6,
         "importPath": "app.schemas.task_schema",
         "description": "app.schemas.task_schema",
-        "peekOfCode": "class TaskUpdate(BaseModel):\n    title: Optional[str] = None\n    description: Optional[str] = None\n    assignee_ids: Optional[List[int]] = None\n    due_at: Optional[datetime] = None\n    parent_task_id: Optional[int] = None\n    start_at: Optional[datetime] = None\n    estimated_minutes: Optional[int] = None\n    version: Optional[int] = None\n    model_config = {\"from_attributes\": True}",
+        "peekOfCode": "class TaskUpdate(BaseModel):\n    title: Optional[str] = None\n    description: Optional[str] = None\n    assignee_ids: Optional[List[int]] = None\n    due_at: Optional[datetime] = None\n    parent_task_id: Optional[int] = None\n    start_at: Optional[datetime] = None\n    estimated_minutes: Optional[int] = None\n    version: Optional[int] = None\n    model_config = {",
         "detail": "app.schemas.task_schema",
         "documentation": {}
     },
@@ -3250,7 +3403,7 @@
         "kind": 6,
         "importPath": "app.schemas.user_schema",
         "description": "app.schemas.user_schema",
-        "peekOfCode": "class UserOut(BaseModel, OrmConfigMixin):\n    id: int\n    email: EmailStr\n    name: Optional[str] = None\n    created_at: Optional[Any] = None\n    updated_at: Optional[Any] = None\nclass TokenOut(BaseModel, OrmConfigMixin):\n    access_token: str\n    token_type: str = \"bearer\"",
+        "peekOfCode": "class UserOut(BaseModel, OrmConfigMixin):\n    id: int\n    email: EmailStr\n    name: Optional[str] = None\n    created_at: Optional[Any] = None\n    updated_at: Optional[Any] = None\nclass TokenOut(BaseModel, OrmConfigMixin):\n    access_token: str\n    token_type: str = \"bearer\"\nclass UserCreate(BaseModel):",
         "detail": "app.schemas.user_schema",
         "documentation": {}
     },
@@ -3259,7 +3412,25 @@
         "kind": 6,
         "importPath": "app.schemas.user_schema",
         "description": "app.schemas.user_schema",
-        "peekOfCode": "class TokenOut(BaseModel, OrmConfigMixin):\n    access_token: str\n    token_type: str = \"bearer\"",
+        "peekOfCode": "class TokenOut(BaseModel, OrmConfigMixin):\n    access_token: str\n    token_type: str = \"bearer\"\nclass UserCreate(BaseModel):\n    email: EmailStr\n    password: str\n    name: Optional[str] = None\nclass UserUpdate(BaseModel):\n    # allow partial updates: any of these may be omitted\n    email: Optional[EmailStr] = None",
+        "detail": "app.schemas.user_schema",
+        "documentation": {}
+    },
+    {
+        "label": "UserCreate",
+        "kind": 6,
+        "importPath": "app.schemas.user_schema",
+        "description": "app.schemas.user_schema",
+        "peekOfCode": "class UserCreate(BaseModel):\n    email: EmailStr\n    password: str\n    name: Optional[str] = None\nclass UserUpdate(BaseModel):\n    # allow partial updates: any of these may be omitted\n    email: Optional[EmailStr] = None\n    name: Optional[str] = None\n    password: Optional[str] = None   # plain password; service will hash",
+        "detail": "app.schemas.user_schema",
+        "documentation": {}
+    },
+    {
+        "label": "UserUpdate",
+        "kind": 6,
+        "importPath": "app.schemas.user_schema",
+        "description": "app.schemas.user_schema",
+        "peekOfCode": "class UserUpdate(BaseModel):\n    # allow partial updates: any of these may be omitted\n    email: Optional[EmailStr] = None\n    name: Optional[str] = None\n    password: Optional[str] = None   # plain password; service will hash",
         "detail": "app.schemas.user_schema",
         "documentation": {}
     },
