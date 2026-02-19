@@ -6,6 +6,7 @@ from app.models.user import User
 from sqlalchemy.orm import selectinload
 from app.models.task import Task
 
+
 class TaskService:
     async def create_task(
         self,
@@ -67,19 +68,34 @@ class TaskService:
         # Re-query with eager loads so returned Task has relationships populated
         q = select(Task).where(Task.id == new_task.id).options(
             selectinload(Task.assignees),
-            selectinload(Task.subtasks)  # optional; needed if your schema reads subtasks
+            selectinload(Task.subtasks),
+            selectinload(Task.tags),
+            selectinload(Task.comments),
+            selectinload(Task.progress_updates),
         )
         result = await db.execute(q)
         task = result.scalar_one()
         return task
 
     async def get_task(self, db: AsyncSession, task_id: int) -> Optional[Task]:
-        q = select(Task).where(Task.id == task_id).options(selectinload(Task.assignees))
+        q = select(Task).where(Task.id == task_id).options(
+            selectinload(Task.assignees),
+            selectinload(Task.subtasks),
+            selectinload(Task.tags),
+            selectinload(Task.comments),
+            selectinload(Task.progress_updates),
+        )
         result = await db.execute(q)
         return result.scalar_one_or_none()
 
     async def list_tasks(self, db: AsyncSession, skip: int = 0, limit: int = 100, parent_task_id: Optional[int] = None) -> List[Task]:
-        q = select(Task).offset(skip).limit(limit).options(selectinload(Task.assignees))
+        q = select(Task).offset(skip).limit(limit).options(
+            selectinload(Task.assignees),
+            selectinload(Task.subtasks),
+            selectinload(Task.tags),
+            selectinload(Task.comments),
+            selectinload(Task.progress_updates),
+        )
         if parent_task_id is not None:
             q = q.where(Task.parent_task_id == parent_task_id)
         return (await db.execute(q)).scalars().all()
@@ -111,7 +127,13 @@ class TaskService:
         await db.commit()
 
         # re-query eagerly to ensure relationships are loaded
-        q = select(Task).where(Task.id == task.id).options(selectinload(Task.assignees), selectinload(Task.subtasks))
+        q = select(Task).where(Task.id == task.id).options(
+            selectinload(Task.assignees),
+            selectinload(Task.subtasks),
+            selectinload(Task.tags),
+            selectinload(Task.comments),
+            selectinload(Task.progress_updates),
+        )
         result = await db.execute(q)
         return result.scalar_one_or_none()
 
@@ -147,7 +169,13 @@ class TaskService:
         await db.commit()
 
         # re-query with eager loads
-        q = select(Task).where(Task.id == task.id).options(selectinload(Task.assignees), selectinload(Task.subtasks))
+        q = select(Task).where(Task.id == task.id).options(
+            selectinload(Task.assignees),
+            selectinload(Task.subtasks),
+            selectinload(Task.tags),
+            selectinload(Task.comments),
+            selectinload(Task.progress_updates),
+        )
         result = await db.execute(q)
         return result.scalar_one()
 
@@ -155,13 +183,28 @@ class TaskService:
         task = await self.get_task(db, task_id)
         if not task:
             return None
-        users = (await db.execute(select(User).where(User.id.in_(set(user_ids))))).scalars().all()
-        task.assignees = users
+
+        if not user_ids:
+            # clear assignment
+            task.assignees = []
+        else:
+            # fetch users for the given ids
+            result = await db.execute(select(User).where(User.id.in_(list(user_ids))))
+            users = result.scalars().all()
+            task.assignees = users
+
         db.add(task)
         await db.commit()
+        await db.refresh(task)
 
         # re-query with eager loads
-        q = select(Task).where(Task.id == task.id).options(selectinload(Task.assignees), selectinload(Task.subtasks))
+        q = select(Task).where(Task.id == task.id).options(
+            selectinload(Task.assignees),
+            selectinload(Task.subtasks),
+            selectinload(Task.tags),
+            selectinload(Task.comments),
+            selectinload(Task.progress_updates),
+        )
         result = await db.execute(q)
         return result.scalar_one_or_none()
 
@@ -208,4 +251,6 @@ class TaskService:
             await db.commit()
             return
 
+
+# module-level instance for backwards compatibility with other code
 task_service = TaskService()

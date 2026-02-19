@@ -38,7 +38,7 @@ class ProjectService:
     ) -> Project | None:
         """Update a project with given patch and commit."""
         project = await project_repo.update(db, project_id, patch)
-        if project:
+        if project:  
             await db.commit()
         return project
     

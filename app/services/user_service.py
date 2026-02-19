@@ -1,7 +1,7 @@
 # app/services/user_service.py
 import os
 from datetime import datetime, timedelta, timezone
-from typing import Optional
+from typing import Optional, List, Dict, Any 
 
 from jose import jwt, JWTError
 from passlib.context import CryptContext
@@ -82,6 +82,88 @@ class UserService:
             return int(sub)
         except (JWTError, TypeError, ValueError):
             return None
+        
+        
+    async def update_user(
+        self,
+        db: AsyncSession,
+        user_id: int,
+        patch: Dict[str, Any],
+        requester_user_id: Optional[int] = None,
+    ) -> User:
+        """
+        Partially update user fields.
+        - patch: may contain 'name', 'email', 'password' (plain). If 'password' present,
+          we hash it into 'password_hash' before saving.
+        - requester_user_id: if provided, enforce that requester == user_id (unless you later add admin bypass).
+        Raises ValueError for validation problems or PermissionError for unauthorized.
+        """
+        # permission check (simple): only allow user to update own account
+        if requester_user_id is not None and requester_user_id != user_id:
+            raise PermissionError("Not authorized to update this user")
+
+        user = await user_repo.get(db, user_id)
+        if not user:
+            raise ValueError("User not found")
+
+        # apply allowed transformations
+        write_patch: Dict[str, Any] = {}
+        if "name" in patch:
+            write_patch["name"] = patch["name"]
+        if "email" in patch:
+            # optionally validate uniqueness
+            new_email = patch["email"]
+            if new_email and new_email != user.email:
+                existing = await user_repo.get_by_email(db, new_email)
+                if existing and existing.id != user.id:
+                    raise ValueError("Email already in use")
+            write_patch["email"] = new_email
+        if "password" in patch and patch["password"]:
+            write_patch["password_hash"] = self.hash_password(patch["password"])
+
+        if not write_patch:
+            # nothing to change
+            return user
+
+        updated = await user_repo.update(db, user, write_patch)
+        await db.commit()
+        await db.refresh(updated)
+        return updated
+
+    async def delete_user(self, db: AsyncSession, user_id: int, requester_user_id: Optional[int] = None) -> None:
+        """
+        Delete a user. Permission check: requester must be same user (or admin in future).
+        Raises ValueError if not found, PermissionError if unauthorized.
+        """
+        if requester_user_id is not None and requester_user_id != user_id:
+            raise PermissionError("Not authorized to delete this user")
+
+        user = await user_repo.get(db, user_id)
+        if not user:
+            raise ValueError("User not found")
+
+        # If you want to prevent deletion if user owns resources, check here.
+        await user_repo.delete(db, user)
+        await db.commit()
+
+    async def list_users(self, db: AsyncSession, skip: int = 0, limit: int = 100):
+        return await user_repo.list(db, skip=skip, limit=limit)
+
+    async def search_users(self, db: AsyncSession, email: Optional[str] = None, name: Optional[str] = None, skip: int = 0, limit: int = 100):
+        # minimal search implementation - repository-level search better for performance
+        users = await user_repo.list(db, skip=0, limit=10000)  # naive - replace with repo.search
+        results = []
+        for u in users:
+            if email and email.lower() not in (u.email or "").lower():
+                continue
+            if name and name.lower() not in (u.name or "").lower():
+                continue
+            results.append(u)
+        return results[skip : skip + limit]
+
+    async def get_user(self, db: AsyncSession, user_id: int):
+        return await user_repo.get(db, user_id)
+
 
 
 # module-level instance

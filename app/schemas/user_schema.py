@@ -52,3 +52,13 @@ class UserOut(BaseModel, OrmConfigMixin):
 class TokenOut(BaseModel, OrmConfigMixin):
     access_token: str
     token_type: str = "bearer"
+class UserCreate(BaseModel):
+    email: EmailStr
+    password: str
+    name: Optional[str] = None
+
+class UserUpdate(BaseModel):
+    # allow partial updates: any of these may be omitted
+    email: Optional[EmailStr] = None
+    name: Optional[str] = None
+    password: Optional[str] = None   # plain password; service will hash
