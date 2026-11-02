@@ -1,0 +1,59 @@
+---
+description: Domain rules and frontend↔backend wiring — statuses, assignments, notifications, who hits which API
+alwaysApply: true
+---
+
+# Domain rules and wiring
+
+## Status vs progress vs complete
+
+| Field | Where | Who writes |
+|---|---|---|
+| `Task.status` | `todo`, `in_progress`, `done` | Admin: any. Lead: `todo` or `in_progress` only. Complete is `POST /tasks/{id}/complete`. |
+| `TaskAssignment.progress` | 0–100 | Lead (or admin) via `PATCH /tasks/{id}/assignments/{user_id}`. |
+| `TaskAssignment.rating` | 1–5 optional | Same PATCH. |
+
+Dashboard percent = average of assignment progress on the project; `done` tasks count as 100.
+
+Lead **cannot** PATCH status to `done`. After saving progress, UI asks to mark completed → `POST /complete`.
+
+## Membership vs assignment
+
+- `ProjectMember` — user is on the project. Leads see the project; assignees must be members.
+- `TaskAssignment` — user is on the task. Creates notification. Shown on My tasks.
+
+Don't assign someone who isn't a project member (service should reject).
+
+## Notifications
+
+Created when a task assignment **adds** a user. Member uses the bell + My tasks. Marking read is `PATCH /notifications/{id}/read` or read-all.
+
+## Frontend → API (who calls what)
+
+All calls go through `apps/frontend/src/api/index.ts` + `client.ts` (Bearer token).
+
+| UI | API |
+|---|---|
+| Login | `POST /api/users/login` (`application/x-www-form-urlencoded` `username`, `password`) |
+| Register | `POST /api/users/register` |
+| Admin users | `/api/users/` CRUD |
+| Admin/lead projects | `/api/projects/` ; members `PUT /{id}/members` |
+| Dashboard | `GET /api/projects/{id}/dashboard` |
+| Create/edit task | `POST/PATCH /api/tasks/` |
+| Assign | `POST /api/tasks/{id}/assign` `{ user_ids }` |
+| Lead progress | `PATCH /api/tasks/{id}/assignments/{user_id}` |
+| Lead complete | `POST /api/tasks/{id}/complete` |
+| My tasks | `GET /api/users/me/tasks` |
+| Task detail | `GET /api/tasks/{id}` |
+| Generate description | `POST /api/ai/generate-task` `{ title }` |
+| Notifications | `GET /api/notifications/` |
+
+## Auth header
+`Authorization: Bearer <token>` from `localStorage` `taskmanager_token`. 401 → send user to login.
+
+## Don't
+- Don't add a fourth role.
+- Don't let members PATCH tasks or assignments.
+- Don't compute dashboard % in the React app if the backend already returns it.
+- Don't call NVIDIA from the frontend.
+- Don't skip notifications when adding assignees.

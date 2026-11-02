@@ -1,0 +1,72 @@
+---
+description: Frontend React structure — what/why/how pages, api, and auth connect
+globs: apps/frontend/**/*
+alwaysApply: false
+---
+
+# Frontend — Structure Map (`apps/frontend/src`)
+
+## What / Why / How per folder
+
+### Entry
+- `index.html` → `main.tsx` mounts `<App />` and loads `index.css`.
+- `App.tsx` wraps routes in `AuthProvider`; `PrivateRoute` / `PublicRoute` gate pages by JWT presence.
+
+### `pages/`
+- **What**: Route screens split by role — `LoginPage`, `RegisterPage`, `AdminHomePage`, `UsersPage`, `ProjectsPage`, `AdminProjectPage`, `LeadProjectPage`, `MyTasksPage`, `TaskDetailPage`, `TagsPage`.
+- **Why**: Admin, project lead, and member each follow a different job after login.
+- **How**: Import functions from `api/index.ts`; never raw `fetch` with duplicated auth headers.
+
+### `components/`
+- **What**: Shared UI — `Layout` (role nav, notifications), `Sheet`, `AssignmentUI` (assignees, progress, rating).
+- **Why**: Reuse across pages without bloating routes.
+- **How**: `ProjectDetailPage` renders `AdminProjectPage` or `LeadProjectPage` from `user.role`. Members are sent to My tasks.
+
+### `context/`
+- **What**: `AuthContext` — login/register/logout, `isAuthenticated`.
+- **Why**: Single auth source for route guards and Layout.
+- **How**: Token in `localStorage` via `api/client.ts` (`taskmanager_token`). Login hits `/api/users/login` (form-urlencoded `username`/`password`).
+
+### `api/`
+- **What**: `client.ts` (Bearer + error parse), `types.ts` (DTOs), `index.ts` (all endpoints).
+- **Why**: One place maps UI → backend paths; Vite proxy makes `/api/...` work in dev.
+- **How**: Add new backend endpoints here first, then use from pages. Paths must match `main.py` prefixes.
+
+## Assignment UX path
+```
+AdminProjectPage
+  → setProjectMembers / createTask / setTaskAssignments
+  → assignment creates a notification for each new assignee
+LeadProjectPage
+  → update progress or status → save → project dashboard refreshes → mark completed
+MyTasksPage → TaskDetailPage
+  → listMyTasks / getTask, read-only for members
+```
+
+## Route ↔ page map
+| Path | Page | Who |
+|------|------|------|
+| `/login`, `/register` | Login/Register | Public only. Register always creates a member. |
+| `/` | Redirect by role | Private |
+| `/admin` | AdminHomePage | Admin |
+| `/users` | UsersPage | Admin |
+| `/projects` | ProjectsPage | Admin sees all; project lead sees assigned projects |
+| `/projects/:projectId` | AdminProjectPage or LeadProjectPage | Admin or the assigned lead |
+| `/my-tasks` | MyTasksPage | Any signed-in user |
+| `/tasks/:taskId` | TaskDetailPage | Assignee, assigned lead, or admin |
+| `/tags` | TagsPage | Admin |
+
+## Frontend → backend connection
+```
+Page/component
+  → api/index.ts (e.g. createTask, generateTaskWithAI)
+    → apiRequest("/api/...") + Authorization header
+      → Vite proxy (vite.config.ts) → http://localhost:8000
+        → FastAPI routers
+```
+
+## Coding conventions
+- TypeScript types in `api/types.ts` should mirror backend `*Out` schemas.
+- After login, rely on `getToken()` automatically attached by `apiRequest`.
+- On 401-style failures, prefer logout / redirect to `/login` rather than silent retry loops.
+- Keep styling in `index.css` / existing patterns; do not introduce a new CSS framework unless asked.

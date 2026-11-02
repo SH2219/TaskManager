@@ -1,0 +1,17 @@
+.env
+**/.env
+
+node_modules/
+dist/
+*.tsbuildinfo
+
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+env/
+**/env/
+
+.DS_Store
+.idea/
+.vscode/PythonImportHelper-v2-Completion.json

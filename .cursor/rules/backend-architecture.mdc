@@ -1,0 +1,60 @@
+---
+description: Backend FastAPI structure — what/why/how each layer works and how it connects
+globs: apps/backend/**/*.py
+alwaysApply: false
+---
+
+# Backend — Structure Map (`apps/backend/app`)
+
+## What / Why / How per folder
+
+### `main.py`
+- **What**: FastAPI app, CORS, `/health`, table create + seed on startup.
+- **Why**: Single process entry; local Postgres must exist (`TaskManager` DB).
+- **How**: Routers mounted under `/api/...`. Seed creates admin / lead / member plus a sample project.
+
+### `api/` (HTTP)
+- **What**: Route modules — validate body, auth, call a service, return schema.
+- **Why**: Keep HTTP out of business rules.
+- **How**: `Depends(get_current_user)` / `require_admin` / `require_admin_or_lead`. Access helpers in `services/access.py` (`assert_project_access`, `assert_task_view`).
+
+| Router | Prefix | Does |
+|---|---|---|
+| `users_router` | `/api/users` | register, login, me, CRUD users, `/me/tasks` |
+| `projects_router` | `/api/projects` | CRUD, members, archive, dashboard |
+| `tasks_router` | `/api/tasks` | CRUD, assign, assignment PATCH, complete, subtasks |
+| `notifications_router` | `/api/notifications` | list, read, read-all |
+| `ai_router` | `/api/ai` | `POST /generate-task` (NVIDIA or fallback) |
+| `tags_router` | `/api` | `/tags` |
+| `comments_router` | `/api` | nested under tasks |
+
+### `services/` (rules)
+- **What**: Use cases — create project, assign users, progress, complete, notify.
+- **Why**: Routers stay thin; rules stay testable.
+- **How**: `task_service.assign_users` / create-with-assignees → `notification_service.notify_task_assigned`. `project_service.dashboard` averages assignment progress.
+
+### `crud/` (SQL)
+- **What**: Load/save models only.
+- **Why**: No HTTP, no role policy.
+- **How**: Called only from services.
+
+### `models/` + `schemas/`
+- **What**: SQLAlchemy tables vs Pydantic request/response.
+- **Why**: DB shape ≠ API shape (`User.password_hash` never goes out).
+- **How**: `UserOut`, `TaskOut` (with `assignments`), `NotificationOut`, `ProjectDashboardOut`.
+
+### `core/`
+- **What**: `config.py` (env), `database.py` (async engine), `seed.py`.
+- **How**: `DATABASE_URL`, `JWT_*`, `NVIDIA_*`. Session = `async_session`.
+
+## Request path
+```
+HTTP → api/*_router.py → services/*_service.py → crud/*_repo.py → models → Postgres
+                                         ↘ notification_service (on new assignees)
+```
+
+## Coding conventions
+- New endpoint: schema → service → router. Don't query the session in a router except trivial `db.get`.
+- Permission failures = `HTTPException` from `access.py` or `dependencies.py`.
+- Assignment changes that add user IDs must notify. Don't bypass `task_service` for that.
+- Keep NVIDIA in `ai_service.py`; no AI calls from task CRUD.

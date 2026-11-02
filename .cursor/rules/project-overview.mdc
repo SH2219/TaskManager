@@ -1,0 +1,64 @@
+---
+description: TaskManager product overview — roles, assignment, progress, and current stack
+alwaysApply: true
+---
+
+# TaskManager — Product Overview
+
+A role-based task manager: **admins** set up people and projects, **project leads** drive assigned work, **members** see only what they are assigned.
+
+## Roles (what each person does)
+
+| Role | After login | Can do |
+|---|---|---|
+| **Admin** | Admin dashboard | Users (CRUD, roles), projects (CRUD, archive, members), tags, create/edit/assign tasks, comments |
+| **Project lead** | Assigned projects | Update **progress** and **status** on tasks in those projects; mark a task **completed**; view assigned tasks |
+| **Member** | My tasks | View assigned tasks only (read-only). No project list, no progress edits |
+
+Register always creates a **member**. Only an admin can raise role.
+
+## The assignment chain (the product)
+
+```
+Admin
+  → creates project
+  → assigns project lead + members  (project membership)
+  → creates task + assigns people   (task assignment → notification)
+Project lead
+  → opens that project
+  → updates progress / status
+  → dashboard % refreshes from assignments
+  → marks task completed
+Member
+  → notification + My tasks
+  → opens task (read-only)
+```
+
+- **Project membership** = who belongs to the project (lead + members).
+- **Task assignment** = who is on a specific task. Assignee gets a **task assigned** notification. Lead/admin can also assign themselves.
+- **Progress** lives on the assignment (`0–100`). Project dashboard % = average of those scores (completed tasks count as 100).
+- **Status** is `todo` | `in_progress` | `done`. Leads set todo/in progress; **completed** is a separate confirm step after a save.
+
+## What the UI must make obvious
+
+1. Admin: create project → add team → create task → assign people.
+2. Lead: open assigned project → pick a task → progress or status → save → see dashboard update → optionally mark completed.
+3. Member: assigned tasks list → open details. Nothing else.
+
+Keep copy short. One primary action per screen. Don't dump admin, lead, and member controls on the same view.
+
+## Stack (as of the apps/ split)
+
+- **Frontend:** React + Vite + TypeScript in `apps/frontend` (`/api` proxied to FastAPI).
+- **Backend:** FastAPI + SQLAlchemy 2 async + PostgreSQL in `apps/backend`.
+- **Auth:** JWT (`python-jose`); login is OAuth2 password form (`username` = email).
+- **AI:** NVIDIA NIM optional (`NVIDIA_API_KEY`) for task title → description.
+- **Frontend must not** call NVIDIA or the DB. Backend must not import React.
+
+## Constraints
+
+- Do not invent extra roles.
+- Members never edit progress, status, or assignments.
+- Leads only see/update projects they are a member of.
+- Assigning a user to a task creates a notification — keep that side effect.
+- Prefer the existing `apps/frontend/src/api` and `apps/backend/app` layers over new parallel clients.
