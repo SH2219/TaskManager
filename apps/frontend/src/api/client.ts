@@ -1,5 +1,8 @@
 const TOKEN_KEY = "taskmanager_token";
 
+/** Render/production API origin. Empty = same-origin / Vite proxy. */
+const API_BASE = (import.meta.env.VITE_API_BASE_URL as string | undefined)?.replace(/\/$/, "") ?? "";
+
 export function getToken(): string | null {
   return localStorage.getItem(TOKEN_KEY);
 }
@@ -12,6 +15,11 @@ export function clearToken() {
   localStorage.removeItem(TOKEN_KEY);
 }
 
+function apiUrl(path: string) {
+  if (path.startsWith("http://") || path.startsWith("https://")) return path;
+  return `${API_BASE}${path.startsWith("/") ? path : `/${path}`}`;
+}
+
 export async function apiRequest<T>(path: string, options: RequestInit = {}): Promise<T> {
   const headers = new Headers(options.headers);
   const token = getToken();
@@ -20,7 +28,7 @@ export async function apiRequest<T>(path: string, options: RequestInit = {}): Pr
     headers.set("Content-Type", "application/json");
   }
 
-  const response = await fetch(path, { ...options, headers });
+  const response = await fetch(apiUrl(path), { ...options, headers });
   if (response.status === 204) return undefined as T;
 
   const text = await response.text();
