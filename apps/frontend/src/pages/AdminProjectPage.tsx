@@ -58,10 +58,13 @@ export default function AdminProjectPage() {
   const [comments, setComments] = useState<Comment[]>([]);
   const [commentText, setCommentText] = useState("");
   const [subtasks, setSubtasks] = useState<Record<number, Task[]>>({});
+  const [panel, setPanel] = useState<"edit" | "members" | "create" | null>(null);
+  const [sheetError, setSheetError] = useState("");
+  const [savingTask, setSavingTask] = useState(false);
 
-  const load = useCallback(async () => {
+  const load = useCallback(async (opts?: { quiet?: boolean }) => {
     if (!id) return;
-    setLoading(true);
+    if (!opts?.quiet) setLoading(true);
     setError("");
     try {
       const [proj, taskList, userList, board] = await Promise.all([
@@ -79,9 +82,9 @@ export default function AdminProjectPage() {
       setDashboard(board);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to load project");
-      setProject(null);
+      if (!opts?.quiet) setProject(null);
     } finally {
-      setLoading(false);
+      if (!opts?.quiet) setLoading(false);
     }
   }, [id]);
 
@@ -89,7 +92,53 @@ export default function AdminProjectPage() {
     load();
   }, [load]);
 
-  const team = users.filter((person) => memberIds.includes(person.id));
+  const team = users.filter((person) => (project?.member_ids ?? []).includes(person.id));
+
+  function taskAssigneeIds(task: Task) {
+    if (task.assignee_ids?.length) return task.assignee_ids;
+    return (task.assignments ?? []).map((item) => item.user_id);
+  }
+
+  function openEditProject() {
+    if (!project) return;
+    setSelected(null);
+    setName(project.name);
+    setDescription(project.description ?? "");
+    setPanel("edit");
+  }
+
+  function openMembers() {
+    if (!project) return;
+    setSelected(null);
+    setMemberIds(project.member_ids ?? []);
+    setPanel("members");
+  }
+
+  function openCreateTask() {
+    setSelected(null);
+    setTitle("");
+    setTaskDescription("");
+    setParentId("");
+    setAssigneeIds([]);
+    setDueAt("");
+    setPriority(3);
+    setPanel("create");
+  }
+
+  function closePanel() {
+    setPanel(null);
+    if (project) {
+      setName(project.name);
+      setDescription(project.description ?? "");
+      setMemberIds(project.member_ids ?? []);
+    }
+  }
+
+  function closeTaskSheet() {
+    setSelected(null);
+    setSheetError("");
+    setCommentText("");
+  }
 
   async function handleSaveProject(event: FormEvent) {
     event.preventDefault();
@@ -102,6 +151,7 @@ export default function AdminProjectPage() {
         description: description.trim() || null,
       });
       setProject(updated);
+      closePanel();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not save the project");
     } finally {
@@ -117,6 +167,7 @@ export default function AdminProjectPage() {
       setProject(updated);
       setMemberIds(updated.member_ids ?? []);
       setNotice("Project members saved.");
+      closePanel();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not save members");
     }
@@ -128,21 +179,54 @@ export default function AdminProjectPage() {
     try {
       const updated = project.archived ? await restoreProject(id) : await archiveProject(id);
       setProject(updated);
+      closePanel();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not archive the project");
     }
   }
 
   async function handleGenerate() {
-    if (!title.trim()) return;
+    if (!title.trim() || !id) return;
     setGenerating(true);
     setError("");
     try {
-      const result = await generateTaskWithAI({ title: title.trim() });
+      const result = await generateTaskWithAI({
+        title: title.trim(),
+        project_id: id,
+        priority,
+        due_at: dueAt || undefined,
+        parent_task_id: parentId === "" ? undefined : parentId,
+      });
       setTitle(result.title);
       setTaskDescription(result.description);
+      if (result.source === "fallback") {
+        setNotice("AI was unavailable, so a local draft was filled in. Edit it before saving.");
+      } else {
+        setNotice("");
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not generate a description");
+    } finally {
+      setGenerating(false);
+    }
+  }
+
+  async function handleGenerateEdit() {
+    if (!editTitle.trim() || !id || !selected) return;
+    setGenerating(true);
+    setSheetError("");
+    try {
+      const result = await generateTaskWithAI({
+        title: editTitle.trim(),
+        project_id: id,
+        priority: editPriority,
+        due_at: editDue || undefined,
+        parent_task_id: selected.parent_task_id ?? undefined,
+      });
+      setEditTitle(result.title);
+      setEditDescription(result.description);
+    } catch (err) {
+      setSheetError(err instanceof Error ? err.message : "Could not generate a description");
     } finally {
       setGenerating(false);
     }
@@ -159,7 +243,7 @@ export default function AdminProjectPage() {
         description: taskDescription.trim() || undefined,
         project_id: id,
         parent_task_id: parentId === "" ? undefined : parentId,
-        assignee_ids: assigneeIds.filter((uid) => memberIds.includes(uid)),
+        assignee_ids: assigneeIds.filter((uid) => (project?.member_ids ?? []).includes(uid)),
         priority,
         due_at: dueAt ? new Date(dueAt).toISOString() : null,
       });
@@ -171,49 +255,57 @@ export default function AdminProjectPage() {
       setDueAt("");
       setPriority(3);
       if (assigned) setNotice("Task created. New assignees get a task assigned notification.");
-      await load();
+      closePanel();
+      await load({ quiet: true });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not create the task");
     }
   }
 
   async function openTask(task: Task) {
+    setPanel(null);
+    setSheetError("");
     setSelected(task);
     setEditTitle(task.title);
     setEditDescription(task.description ?? "");
     setEditPriority(task.priority ?? 3);
     setEditStatus(task.status);
     setEditDue(task.due_at ? task.due_at.slice(0, 10) : "");
-    setEditAssignees(task.assignee_ids ?? []);
+    setEditAssignees(taskAssigneeIds(task));
     setCommentText("");
+    setComments([]);
     try {
       setComments(await listComments(task.id));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not load comments");
+      setSheetError(err instanceof Error ? err.message : "Could not load comments");
     }
   }
 
   async function handleSaveTask(event: FormEvent) {
     event.preventDefault();
     if (!selected || !editTitle.trim()) return;
-    setError("");
+    setSheetError("");
+    setSavingTask(true);
     try {
+      const members = project?.member_ids ?? memberIds;
       const updated = await updateTask(selected.id, {
         title: editTitle.trim(),
         description: editDescription.trim() || null,
         priority: editPriority,
         status: editStatus,
-        due_at: editDue ? new Date(editDue).toISOString() : null,
+        due_at: editDue ? new Date(`${editDue}T12:00:00`).toISOString() : null,
       });
-      const withPeople = await setTaskAssignments(
+      await setTaskAssignments(
         updated.id,
-        editAssignees.filter((uid) => memberIds.includes(uid)),
+        editAssignees.filter((uid) => members.includes(uid)),
       );
-      setSelected(withPeople);
       setNotice("Task saved. New assignees get a task assigned notification.");
-      await load();
+      closeTaskSheet();
+      await load({ quiet: true });
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not save the task");
+      setSheetError(err instanceof Error ? err.message : "Could not save the task");
+    } finally {
+      setSavingTask(false);
     }
   }
 
@@ -221,8 +313,8 @@ export default function AdminProjectPage() {
     if (!confirm("Delete this task?")) return;
     try {
       await deleteTask(taskId);
-      if (selected?.id === taskId) setSelected(null);
-      await load();
+      if (selected?.id === taskId) closeTaskSheet();
+      await load({ quiet: true });
     } catch (err) {
       setError(err instanceof Error ? err.message : "Could not delete the task");
     }
@@ -249,15 +341,25 @@ export default function AdminProjectPage() {
   async function handleAddComment(event: FormEvent) {
     event.preventDefault();
     if (!selected || !commentText.trim()) return;
-    await createComment(selected.id, commentText.trim());
-    setCommentText("");
-    setComments(await listComments(selected.id));
+    setSheetError("");
+    try {
+      await createComment(selected.id, commentText.trim());
+      setCommentText("");
+      setComments(await listComments(selected.id));
+    } catch (err) {
+      setSheetError(err instanceof Error ? err.message : "Could not post comment");
+    }
   }
 
   async function handleDeleteComment(commentId: number) {
     if (!selected) return;
-    await deleteComment(commentId);
-    setComments(await listComments(selected.id));
+    setSheetError("");
+    try {
+      await deleteComment(commentId);
+      setComments(await listComments(selected.id));
+    } catch (err) {
+      setSheetError(err instanceof Error ? err.message : "Could not delete comment");
+    }
   }
 
   if (loading) {
@@ -306,109 +408,50 @@ export default function AdminProjectPage() {
       )}
 
       <section className="card">
-        <p className="flow-step-label">Edit project</p>
-        <form className="form-stack" onSubmit={handleSaveProject}>
-          <label>
-            Name
-            <input value={name} onChange={(e) => setName(e.target.value)} required />
-          </label>
-          <label>
-            Description
-            <textarea rows={3} value={description} onChange={(e) => setDescription(e.target.value)} />
-          </label>
-          <div className="form-row">
-            <button type="submit" className="btn btn-primary" disabled={savingProject}>
-              {savingProject ? "Saving…" : "Save changes"}
-            </button>
-            <button type="button" className="btn btn-ghost" onClick={handleArchive}>
-              {project.archived ? "Restore" : "Archive"}
-            </button>
+        <div className="row-between">
+          <div>
+            <h2>Setup</h2>
+            <p className="muted">Edit details, add the team, then create tasks.</p>
           </div>
-        </form>
-      </section>
-
-      <section className="card">
-        <p className="flow-step-label">Add project members</p>
-        <p className="muted">Include the project lead and the members who will receive tasks.</p>
-        <UserMultiSelect
-          users={users}
-          selectedIds={memberIds}
-          onChange={setMemberIds}
-          label="People on this project"
-        />
-        <button type="button" className="btn btn-primary" onClick={handleMembers}>
-          Save members
-        </button>
-      </section>
-
-      <section className="card">
-        <p className="flow-step-label">Create task</p>
-        <form className="form-stack" onSubmit={handleCreateTask}>
-          <input placeholder="Task title" value={title} onChange={(e) => setTitle(e.target.value)} required />
-          <button type="button" className="btn btn-ghost" onClick={handleGenerate} disabled={generating || !title.trim()}>
-            {generating ? "Generating…" : "Generate description"}
+        </div>
+        <div className="project-actions">
+          <button type="button" className="btn btn-ghost" onClick={openEditProject}>
+            Edit project
           </button>
-          <textarea
-            rows={4}
-            placeholder="Description"
-            value={taskDescription}
-            onChange={(e) => setTaskDescription(e.target.value)}
-          />
-          <div className="form-row">
-            <label>
-              Priority
-              <input
-                type="number"
-                min={1}
-                max={5}
-                value={priority}
-                onChange={(e) => setPriority(Number(e.target.value))}
-              />
-            </label>
-            <label>
-              Due date
-              <input type="date" value={dueAt} onChange={(e) => setDueAt(e.target.value)} />
-            </label>
-          </div>
-          <label>
-            Parent task
-            <select
-              value={parentId}
-              onChange={(e) => setParentId(e.target.value ? Number(e.target.value) : "")}
-            >
-              <option value="">None</option>
-              {tasks.map((task) => (
-                <option key={task.id} value={task.id}>
-                  {task.title}
-                </option>
-              ))}
-            </select>
-          </label>
-          {team.length > 0 ? (
-            <UserMultiSelect
-              users={team}
-              selectedIds={assigneeIds}
-              onChange={setAssigneeIds}
-              label="Assign to"
-            />
-          ) : (
-            <p className="muted">Add project members before assigning tasks.</p>
-          )}
-          <button type="submit" className="btn btn-primary">
+          <button type="button" className="btn btn-ghost" onClick={openMembers}>
+            Members{team.length ? ` (${team.length})` : ""}
+          </button>
+          <button type="button" className="btn btn-primary" onClick={openCreateTask}>
             Create task
           </button>
-        </form>
+        </div>
+        {team.length > 0 ? (
+          <ul className="people-list">
+            {team.map((person) => (
+              <li key={person.id} className="muted">
+                {person.name?.trim() || person.email}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="muted">No members yet. Add a lead and people before assigning work.</p>
+        )}
       </section>
 
       <section className="card">
-        <h2>Tasks ({tasks.length})</h2>
+        <div className="row-between">
+          <h2>Tasks ({tasks.length})</h2>
+          <button type="button" className="btn btn-primary btn-sm" onClick={openCreateTask}>
+            Create task
+          </button>
+        </div>
         {tasks.length === 0 ? (
           <p className="muted">No tasks yet.</p>
         ) : (
           <ul className="task-list">
             {tasks.map((task) => (
               <li key={task.id} className="task-card">
-                <button type="button" className="task-card-main" onClick={() => openTask(task)}>
+                <div className="task-card-main">
                   <span className="task-card-head">
                     <strong>{task.title}</strong>
                     <span className={`badge badge-${task.status}`}>{statusLabel(task.status)}</span>
@@ -418,8 +461,11 @@ export default function AdminProjectPage() {
                     <span>{formatDate(task.due_at)}</span>
                     {task.assignments?.length ? <span>{task.assignments.length} assigned</span> : null}
                   </span>
-                </button>
+                </div>
                 <div className="project-actions">
+                  <button type="button" className="btn btn-primary btn-sm" onClick={() => openTask(task)}>
+                    Edit
+                  </button>
                   <button type="button" className="btn btn-ghost btn-sm" onClick={() => toggleSubtasks(task.id)}>
                     {subtasks[task.id] ? "Hide subtasks" : "Subtasks"}
                   </button>
@@ -433,9 +479,12 @@ export default function AdminProjectPage() {
                       <li className="muted">No subtasks.</li>
                     ) : (
                       subtasks[task.id].map((child) => (
-                        <li key={child.id}>
+                        <li key={child.id} className="row-between">
                           <button type="button" className="task-title-btn" onClick={() => openTask(child)}>
                             {child.title}
+                          </button>
+                          <button type="button" className="btn btn-ghost btn-sm" onClick={() => openTask(child)}>
+                            Edit
                           </button>
                         </li>
                       ))
@@ -448,13 +497,129 @@ export default function AdminProjectPage() {
         )}
       </section>
 
+      {panel === "edit" && (
+        <Sheet title="Edit project" onClose={closePanel}>
+          <form className="form-stack" onSubmit={handleSaveProject}>
+            <label>
+              Name
+              <input value={name} onChange={(e) => setName(e.target.value)} required />
+            </label>
+            <label>
+              Description
+              <textarea rows={3} value={description} onChange={(e) => setDescription(e.target.value)} />
+            </label>
+            <div className="form-row">
+              <button type="submit" className="btn btn-primary" disabled={savingProject}>
+                {savingProject ? "Saving…" : "Save changes"}
+              </button>
+              <button type="button" className="btn btn-ghost" onClick={handleArchive}>
+                {project.archived ? "Restore" : "Archive"}
+              </button>
+            </div>
+          </form>
+        </Sheet>
+      )}
+
+      {panel === "members" && (
+        <Sheet title="Project members" onClose={closePanel}>
+          <p className="muted">
+            Include at least one project lead so someone can update progress on this project. Promote people
+            to lead on Users first if you need more leads.
+          </p>
+          <UserMultiSelect
+            users={users}
+            selectedIds={memberIds}
+            onChange={setMemberIds}
+            label="People on this project"
+            hint="Leads are listed first. Members can only see tasks after you assign them."
+          />
+          <button type="button" className="btn btn-primary" onClick={handleMembers}>
+            Save members
+          </button>
+        </Sheet>
+      )}
+
+      {panel === "create" && (
+        <Sheet title="Create task" onClose={closePanel}>
+          <form className="form-stack" onSubmit={handleCreateTask}>
+            <input placeholder="Task title" value={title} onChange={(e) => setTitle(e.target.value)} required />
+            <button
+              type="button"
+              className="btn btn-ghost"
+              onClick={handleGenerate}
+              disabled={generating || !title.trim()}
+            >
+              {generating ? "Generating…" : "Generate description"}
+            </button>
+            <textarea
+              rows={4}
+              placeholder="Description"
+              value={taskDescription}
+              onChange={(e) => setTaskDescription(e.target.value)}
+            />
+            <div className="form-row">
+              <label>
+                Priority
+                <input
+                  type="number"
+                  min={1}
+                  max={5}
+                  value={priority}
+                  onChange={(e) => setPriority(Number(e.target.value))}
+                />
+              </label>
+              <label>
+                Due date
+                <input type="date" value={dueAt} onChange={(e) => setDueAt(e.target.value)} />
+              </label>
+            </div>
+            <label>
+              Parent task
+              <select
+                value={parentId}
+                onChange={(e) => setParentId(e.target.value ? Number(e.target.value) : "")}
+              >
+                <option value="">None</option>
+                {tasks.map((task) => (
+                  <option key={task.id} value={task.id}>
+                    {task.title}
+                  </option>
+                ))}
+              </select>
+            </label>
+            {team.length > 0 ? (
+              <UserMultiSelect
+                users={team}
+                selectedIds={assigneeIds}
+                onChange={setAssigneeIds}
+                label="Assign to"
+              />
+            ) : (
+              <p className="muted">Add project members before assigning tasks.</p>
+            )}
+            <button type="submit" className="btn btn-primary">
+              Create task
+            </button>
+          </form>
+        </Sheet>
+      )}
+
       {selected && (
-        <Sheet title="Edit task" onClose={() => setSelected(null)}>
+        <Sheet title="Edit task" onClose={closeTaskSheet}>
+          {sheetError && <div className="alert alert-error">{sheetError}</div>}
           <form className="form-stack" onSubmit={handleSaveTask}>
             <label>
               Title
               <input value={editTitle} onChange={(e) => setEditTitle(e.target.value)} required />
             </label>
+            <button
+              type="button"
+              className="btn btn-ghost"
+              onClick={handleGenerateEdit}
+              disabled={generating || !editTitle.trim()}
+            >
+              {generating ? "Generating…" : "Generate description"}
+            </button>
             <label>
               Description
               <textarea rows={4} value={editDescription} onChange={(e) => setEditDescription(e.target.value)} />
@@ -485,15 +650,19 @@ export default function AdminProjectPage() {
                 <input type="date" value={editDue} onChange={(e) => setEditDue(e.target.value)} />
               </label>
             </div>
-            <UserMultiSelect
-              users={team}
-              selectedIds={editAssignees}
-              onChange={setEditAssignees}
-              label="Assign to project members"
-            />
+            {team.length > 0 ? (
+              <UserMultiSelect
+                users={team}
+                selectedIds={editAssignees}
+                onChange={setEditAssignees}
+                label="Assign to project members"
+              />
+            ) : (
+              <p className="muted">Add project members before assigning people to this task.</p>
+            )}
             <p className="muted">Saving a new assignee sends them a task assigned notification.</p>
-            <button type="submit" className="btn btn-primary">
-              Save task
+            <button type="submit" className="btn btn-primary" disabled={savingTask}>
+              {savingTask ? "Saving…" : "Save task"}
             </button>
           </form>
           <h3>Comments</h3>

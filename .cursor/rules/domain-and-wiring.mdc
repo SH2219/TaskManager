@@ -45,7 +45,7 @@ All calls go through `apps/frontend/src/api/index.ts` + `client.ts` (Bearer toke
 | Lead complete | `POST /api/tasks/{id}/complete` |
 | My tasks | `GET /api/users/me/tasks` |
 | Task detail | `GET /api/tasks/{id}` |
-| Generate description | `POST /api/ai/generate-task` `{ title }` |
+| Generate description | `POST /api/ai/generate-task` `{ title, project_id, priority?, due_at?, parent_task_id? }` — backend loads project details + existing tasks for the prompt |
 | Notifications | `GET /api/notifications/` |
 
 ## Auth header

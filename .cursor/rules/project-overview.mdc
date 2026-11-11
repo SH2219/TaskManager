@@ -52,7 +52,7 @@ Keep copy short. One primary action per screen. Don't dump admin, lead, and memb
 - **Frontend:** React + Vite + TypeScript in `apps/frontend` (`/api` proxied to FastAPI).
 - **Backend:** FastAPI + SQLAlchemy 2 async + PostgreSQL in `apps/backend`.
 - **Auth:** JWT (`python-jose`); login is OAuth2 password form (`username` = email).
-- **AI:** NVIDIA NIM optional (`NVIDIA_API_KEY`) for task title → description.
+- **AI:** NVIDIA NIM optional (`NVIDIA_API_KEY`) for task title + project context → description.
 - **Frontend must not** call NVIDIA or the DB. Backend must not import React.
 
 ## Constraints

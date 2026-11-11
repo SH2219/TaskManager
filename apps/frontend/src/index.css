@@ -435,8 +435,36 @@ p { margin: 0; }
   font-weight: 640;
   color: #e7b56a;
 }
-.dash-note { color: rgba(247, 241, 230, 0.76); max-width: 28rem; }
-.dash-main { display: flex; align-items: center; justify-content: space-between; gap: 0.8rem; }
+.dash-note-block { display: grid; gap: 0.35rem; max-width: 34rem; }
+.dash-note {
+  margin: 0;
+  color: rgba(247, 241, 230, 0.76);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.dash-note.is-expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  white-space: pre-wrap;
+  max-height: 14rem;
+  overflow: auto;
+}
+.dash-more {
+  justify-self: start;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #e7b56a;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 640;
+  cursor: pointer;
+}
+.dash-more:hover { text-decoration: underline; }
+.dash-main { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.8rem; }
 .dash-stat:hover, .action-tile:hover, .project-card:hover, .task-card-main:hover {
   transform: translateY(-1px);
 }
@@ -570,6 +598,7 @@ p { margin: 0; }
   padding: 0.15rem 0 0;
   background: transparent;
   box-shadow: none;
+  cursor: default;
 }
 .project-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
 .project-card {
@@ -583,6 +612,26 @@ p { margin: 0; }
   transition: transform 0.15s ease;
 }
 .project-actions { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.project-desc-link {
+  display: grid;
+  gap: 0.25rem;
+  text-decoration: none;
+  color: inherit;
+}
+.project-desc {
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  line-height: 1.45;
+}
+.project-desc-more {
+  font-size: 0.88rem;
+  font-weight: 640;
+  color: var(--accent);
+}
+.project-desc-link:hover .project-desc-more { text-decoration: underline; }
 .task-title-btn {
   border: 0;
   background: transparent;
@@ -622,8 +671,89 @@ p { margin: 0; }
 }
 .star.on { color: var(--copper); }
 
+.role-guide {
+  display: grid;
+  gap: 0.65rem;
+  grid-template-columns: 1fr;
+}
+.role-guide-card {
+  display: grid;
+  gap: 0.35rem;
+  text-align: left;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+.role-guide-card strong {
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 560;
+}
+.role-guide-card.is-active {
+  border-color: var(--accent);
+  background: #f3faf6;
+}
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.filter-chip {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  border-radius: 999px;
+  min-height: 36px;
+  padding: 0.25rem 0.8rem;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.filter-chip.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--dash-ink);
+}
+.search-input {
+  width: min(100%, 16rem);
+}
+.user-row { gap: 0.75rem; }
+.user-row-actions { display: grid; gap: 0.45rem; }
+.user-role-hint { margin: 0; font-size: 0.86rem; }
+.role-pick { border: 0; margin: 0; padding: 0; display: grid; gap: 0.55rem; }
+.role-pick legend { font-weight: 640; }
+.role-pick-list { display: grid; gap: 0.5rem; }
+.role-pick-option {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+}
+.role-pick-option.is-active {
+  border-color: var(--accent);
+  background: #f3faf6;
+}
+.role-pick-option input { width: auto; min-height: 0; margin-top: 0.2rem; }
+.role-pick-option span { display: grid; gap: 0.15rem; }
 .people-select { border: 0; margin: 0; padding: 0; }
 .people-select legend { margin-bottom: 0.45rem; font-weight: 640; }
+.people-hint { margin: 0 0 0.55rem; }
+.people-group { display: grid; gap: 0.45rem; margin-top: 0.35rem; }
+.people-group-label {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 640;
+  color: var(--muted);
+}
 .person-chip {
   display: flex;
   gap: 0.6rem;
@@ -708,6 +838,7 @@ p { margin: 0; }
 
 @media (min-width: 720px) {
   .action-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .role-guide { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (min-width: 880px) {

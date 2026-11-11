@@ -42,7 +42,7 @@ export default function AdminHomePage() {
         <div className="action-grid">
           <Link className="action-tile" to="/users">
             <strong>Manage users</strong>
-            <span>Edit roles, or add and remove people.</span>
+            <span>Choose admins, project leads, and members.</span>
           </Link>
           <Link className="action-tile" to="/projects">
             <strong>Projects</strong>

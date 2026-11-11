@@ -12,6 +12,15 @@ import type { Project, ProjectDashboard } from "../api/types";
 import { ProgressBar } from "../components/AssignmentUI";
 import { useAuth } from "../context/AuthContext";
 
+function previewDescription(text: string, max = 140) {
+  const cleaned = text.replace(/\s+/g, " ").trim();
+  if (cleaned.length <= max) return { text: cleaned, truncated: false };
+  const slice = cleaned.slice(0, max);
+  const breakAt = Math.max(slice.lastIndexOf(". "), slice.lastIndexOf(" "));
+  const cut = breakAt > 60 ? breakAt + (slice[breakAt] === "." ? 1 : 0) : max;
+  return { text: `${cleaned.slice(0, cut).trimEnd()}…`, truncated: true };
+}
+
 export default function ProjectsPage() {
   const { user } = useAuth();
   const isAdmin = user?.role === "admin";
@@ -142,6 +151,7 @@ export default function ProjectsPage() {
           <ul className="project-list">
             {projects.map((project) => {
               const board = dashboards[project.id];
+              const preview = project.description ? previewDescription(project.description) : null;
               return (
                 <li key={project.id} className="project-card">
                   <div className="list-item-main">
@@ -151,7 +161,12 @@ export default function ProjectsPage() {
                       </Link>
                       {project.archived && <span className="badge">Archived</span>}
                     </div>
-                    {project.description && <p className="muted">{project.description}</p>}
+                    {preview && (
+                      <Link to={`/projects/${project.id}`} className="project-desc-link">
+                        <p className="muted project-desc">{preview.text}</p>
+                        {preview.truncated && <span className="project-desc-more">View full details</span>}
+                      </Link>
+                    )}
                     {board && (
                       <div className="progress-field">
                         <span className="field-label">

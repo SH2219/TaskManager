@@ -225,8 +225,14 @@ export function deleteTag(id: number) {
   return apiRequest<void>(`/api/tags/${id}`, { method: "DELETE" });
 }
 
-export function generateTaskWithAI(payload: { title: string }) {
-  return apiRequest<{ title: string; description: string }>("/api/ai/generate-task", {
+export function generateTaskWithAI(payload: {
+  title: string;
+  project_id: number;
+  priority?: number;
+  due_at?: string | null;
+  parent_task_id?: number;
+}) {
+  return apiRequest<{ title: string; description: string; source?: string }>("/api/ai/generate-task", {
     method: "POST",
     body: JSON.stringify(payload),
   });
