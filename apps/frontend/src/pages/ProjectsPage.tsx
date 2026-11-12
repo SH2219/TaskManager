@@ -11,6 +11,7 @@ import {
 import type { Project, ProjectDashboard } from "../api/types";
 import { ProgressBar } from "../components/AssignmentUI";
 import { useAuth } from "../context/AuthContext";
+import { notify } from "../lib/notify";
 
 function previewDescription(text: string, max = 140) {
   const cleaned = text.replace(/\s+/g, " ").trim();
@@ -29,14 +30,12 @@ export default function ProjectsPage() {
   const [dashboards, setDashboards] = useState<Record<number, ProjectDashboard>>({});
   const [showArchived, setShowArchived] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [creating, setCreating] = useState(false);
 
   async function load(includeArchived = showArchived) {
     setLoading(true);
-    setError("");
     try {
       const rows = await listProjects(isAdmin && includeArchived);
       setProjects(rows);
@@ -45,7 +44,7 @@ export default function ProjectsPage() {
         setDashboards(Object.fromEntries(boards.map((board) => [board.project_id, board])));
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load projects");
+      notify.fromError(err, "Failed to load projects");
     } finally {
       setLoading(false);
     }
@@ -60,38 +59,42 @@ export default function ProjectsPage() {
     event.preventDefault();
     if (!name.trim()) return;
     setCreating(true);
-    setError("");
     try {
       await createProject({ name: name.trim(), description: description.trim() || undefined });
       setName("");
       setDescription("");
+      notify.success("Project created.");
       await load(showArchived);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to create project");
+      notify.fromError(err, "Failed to create project");
     } finally {
       setCreating(false);
     }
   }
 
   async function handleArchive(project: Project) {
-    setError("");
     try {
-      if (project.archived) await restoreProject(project.id);
-      else await archiveProject(project.id);
+      if (project.archived) {
+        await restoreProject(project.id);
+        notify.success("Project restored.");
+      } else {
+        await archiveProject(project.id);
+        notify.success("Project archived.");
+      }
       await load(showArchived);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not update the project");
+      notify.fromError(err, "Could not update the project");
     }
   }
 
   async function handleDelete(id: number) {
     if (!confirm("Delete this archived project and its tasks?")) return;
-    setError("");
     try {
       await deleteProject(id);
+      notify.success("Project deleted.");
       await load(showArchived);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not delete the project");
+      notify.fromError(err, "Could not delete the project");
     }
   }
 
@@ -107,7 +110,6 @@ export default function ProjectsPage() {
             : "Create a project, then add the lead, the members, and the tasks."}
         </p>
       </header>
-      {error && <div className="alert alert-error">{error}</div>}
 
       {isAdmin && (
         <section className="card">

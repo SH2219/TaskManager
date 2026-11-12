@@ -2,6 +2,7 @@ import { type FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { homePath } from "../lib/format";
+import { notify } from "../lib/notify";
 
 const SAMPLES = [
   { role: "Admin", email: "admin@taskmanager.local", password: "admin1234" },
@@ -14,18 +15,17 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    setError("");
     setLoading(true);
     try {
       const me = await login(email, password);
+      notify.success(`Welcome back${me.name ? `, ${me.name}` : ""}`);
       navigate(homePath(me.role));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Login failed");
+      notify.fromError(err, "Login failed");
     } finally {
       setLoading(false);
     }
@@ -45,7 +45,6 @@ export default function LoginPage() {
         <form className="auth-card" onSubmit={handleSubmit}>
           <h1>Welcome back</h1>
           <p className="muted">Sign in. Your role decides what you can do next.</p>
-          {error && <div className="alert alert-error">{error}</div>}
           <label>
             Email
             <input

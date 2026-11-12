@@ -4,6 +4,7 @@ import { listNotifications, markAllNotificationsRead, markNotificationRead } fro
 import type { NotificationItem } from "../api/types";
 import { useAuth } from "../context/AuthContext";
 import { homePath, roleLabel } from "../lib/format";
+import { notify } from "../lib/notify";
 
 function NavIcon({ label }: { label: string }) {
   const common = {
@@ -105,14 +106,22 @@ export default function Layout() {
   }, []);
 
   async function openNote(note: NotificationItem) {
-    const next = note.read_at ? note : await markNotificationRead(note.id);
-    setNotes((prev) => prev.map((item) => (item.id === note.id ? next : item)));
-    setOpen(false);
-    if (note.task_id) navigate(`/tasks/${note.task_id}`);
+    try {
+      const next = note.read_at ? note : await markNotificationRead(note.id);
+      setNotes((prev) => prev.map((item) => (item.id === note.id ? next : item)));
+      setOpen(false);
+      if (note.task_id) navigate(`/tasks/${note.task_id}`);
+    } catch (err) {
+      notify.fromError(err, "Could not update notification");
+    }
   }
 
   async function markAll() {
-    setNotes(await markAllNotificationsRead());
+    try {
+      setNotes(await markAllNotificationsRead());
+    } catch (err) {
+      notify.fromError(err, "Could not mark notifications read");
+    }
   }
 
   return (

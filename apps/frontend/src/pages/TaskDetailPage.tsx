@@ -5,20 +5,20 @@ import type { Task } from "../api/types";
 import { ProgressBar } from "../components/AssignmentUI";
 import { useAuth } from "../context/AuthContext";
 import { formatDate, roleLabel, statusLabel } from "../lib/format";
+import { notify } from "../lib/notify";
 
 export default function TaskDetailPage() {
   const { taskId } = useParams();
   const id = Number(taskId);
   const { user } = useAuth();
   const [task, setTask] = useState<Task | null>(null);
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!id) return;
     getTask(id)
       .then(setTask)
-      .catch((err) => setError(err instanceof Error ? err.message : "Could not open this task"))
+      .catch((err) => notify.fromError(err, "Could not open this task"))
       .finally(() => setLoading(false));
   }, [id]);
 
@@ -33,7 +33,7 @@ export default function TaskDetailPage() {
   if (!task) {
     return (
       <div className="page">
-        <div className="alert alert-error">{error || "Task not found."}</div>
+        <p className="muted">Task not found.</p>
         <Link to="/my-tasks">Back to assigned tasks</Link>
       </div>
     );

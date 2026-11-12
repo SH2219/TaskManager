@@ -157,6 +157,14 @@ p { margin: 0; }
 .alert-error { background: #fff1ef; color: var(--danger); }
 .alert-ok { background: var(--ok-soft); color: var(--ok); }
 
+.Toastify__toast-container { z-index: 40; }
+.Toastify__toast {
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  box-shadow: var(--shadow);
+}
+
 .page { display: grid; gap: 1rem; }
 .page-header { display: grid; gap: 0.35rem; padding-top: 0.15rem; }
 .page-header h1 { font-size: clamp(1.7rem, 6vw, 2.15rem); }

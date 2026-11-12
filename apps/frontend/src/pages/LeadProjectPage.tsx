@@ -14,6 +14,7 @@ import { ProgressBar, StarRating } from "../components/AssignmentUI";
 import { DashboardPanel } from "../components/Dashboard";
 import { Sheet } from "../components/Sheet";
 import { formatDate, statusLabel } from "../lib/format";
+import { notify } from "../lib/notify";
 
 type Step = "choose" | "progress" | "status" | "details" | "confirm";
 
@@ -24,8 +25,6 @@ export default function LeadProjectPage() {
   const [dashboard, setDashboard] = useState<ProjectDashboard | null>(null);
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [banner, setBanner] = useState("");
   const [active, setActive] = useState<Task | null>(null);
   const [step, setStep] = useState<Step>("choose");
   const [drafts, setDrafts] = useState<Assignment[]>([]);
@@ -35,7 +34,6 @@ export default function LeadProjectPage() {
   const load = useCallback(async () => {
     if (!id) return;
     setLoading(true);
-    setError("");
     try {
       const [proj, taskList, board] = await Promise.all([
         getProject(id),
@@ -47,7 +45,7 @@ export default function LeadProjectPage() {
       setDashboard(board);
     } catch (err) {
       setProject(null);
-      setError(err instanceof Error ? err.message : "This project is not assigned to you");
+      notify.fromError(err, "This project is not assigned to you");
     } finally {
       setLoading(false);
     }
@@ -62,7 +60,6 @@ export default function LeadProjectPage() {
     setStep("choose");
     setDrafts(task.assignments ?? []);
     setStatus(task.status === "done" ? "todo" : task.status);
-    setBanner("");
   }
 
   function closeSheet() {
@@ -82,7 +79,6 @@ export default function LeadProjectPage() {
   async function saveProgress() {
     if (!active) return;
     setSaving(true);
-    setError("");
     try {
       const original = new Map((active.assignments ?? []).map((item) => [item.user_id, item]));
       for (const draft of drafts) {
@@ -95,9 +91,10 @@ export default function LeadProjectPage() {
         }
       }
       await refreshTask(active.id);
+      notify.success("Progress saved.");
       setStep("confirm");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not save progress");
+      notify.fromError(err, "Could not save progress");
     } finally {
       setSaving(false);
     }
@@ -106,13 +103,13 @@ export default function LeadProjectPage() {
   async function saveStatus() {
     if (!active) return;
     setSaving(true);
-    setError("");
     try {
       await updateTask(active.id, { status });
       await refreshTask(active.id);
+      notify.success("Status updated.");
       setStep("confirm");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not update status");
+      notify.fromError(err, "Could not update status");
     } finally {
       setSaving(false);
     }
@@ -121,14 +118,13 @@ export default function LeadProjectPage() {
   async function markCompleted() {
     if (!active) return;
     setSaving(true);
-    setError("");
     try {
       await completeTask(active.id);
       await load();
-      setBanner("Task marked completed. The project dashboard is updated.");
+      notify.success("Task marked completed. The project dashboard is updated.");
       closeSheet();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not mark the task completed");
+      notify.fromError(err, "Could not mark the task completed");
     } finally {
       setSaving(false);
     }
@@ -145,7 +141,7 @@ export default function LeadProjectPage() {
   if (!project) {
     return (
       <div className="page">
-        <div className="alert alert-error">{error || "Project not found."}</div>
+        <p className="muted">Project not found.</p>
         <Link to="/projects">Back to assigned projects</Link>
       </div>
     );
@@ -156,8 +152,6 @@ export default function LeadProjectPage() {
       <Link to="/projects" className="back-link">
         ← Assigned projects
       </Link>
-      {error && <div className="alert alert-error">{error}</div>}
-      {banner && <div className="alert alert-ok">{banner}</div>}
 
       <DashboardPanel
         eyebrow="Project dashboard"

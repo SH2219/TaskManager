@@ -24,6 +24,7 @@ import { UserMultiSelect } from "../components/AssignmentUI";
 import { DashboardPanel } from "../components/Dashboard";
 import { Sheet } from "../components/Sheet";
 import { formatDate, statusLabel } from "../lib/format";
+import { notify } from "../lib/notify";
 
 const STATUSES = ["todo", "in_progress", "done"] as const;
 
@@ -36,8 +37,6 @@ export default function AdminProjectPage() {
   const [users, setUsers] = useState<User[]>([]);
   const [memberIds, setMemberIds] = useState<number[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [notice, setNotice] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [savingProject, setSavingProject] = useState(false);
@@ -59,13 +58,11 @@ export default function AdminProjectPage() {
   const [commentText, setCommentText] = useState("");
   const [subtasks, setSubtasks] = useState<Record<number, Task[]>>({});
   const [panel, setPanel] = useState<"edit" | "members" | "create" | null>(null);
-  const [sheetError, setSheetError] = useState("");
   const [savingTask, setSavingTask] = useState(false);
 
   const load = useCallback(async (opts?: { quiet?: boolean }) => {
     if (!id) return;
     if (!opts?.quiet) setLoading(true);
-    setError("");
     try {
       const [proj, taskList, userList, board] = await Promise.all([
         getProject(id),
@@ -81,7 +78,7 @@ export default function AdminProjectPage() {
       setUsers(userList);
       setDashboard(board);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load project");
+      notify.fromError(err, "Failed to load project");
       if (!opts?.quiet) setProject(null);
     } finally {
       if (!opts?.quiet) setLoading(false);
@@ -136,7 +133,6 @@ export default function AdminProjectPage() {
 
   function closeTaskSheet() {
     setSelected(null);
-    setSheetError("");
     setCommentText("");
   }
 
@@ -144,51 +140,48 @@ export default function AdminProjectPage() {
     event.preventDefault();
     if (!name.trim()) return;
     setSavingProject(true);
-    setError("");
     try {
       const updated = await updateProject(id, {
         name: name.trim(),
         description: description.trim() || null,
       });
       setProject(updated);
+      notify.success("Project saved.");
       closePanel();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not save the project");
+      notify.fromError(err, "Could not save the project");
     } finally {
       setSavingProject(false);
     }
   }
 
   async function handleMembers() {
-    setError("");
-    setNotice("");
     try {
       const updated = await setProjectMembers(id, memberIds);
       setProject(updated);
       setMemberIds(updated.member_ids ?? []);
-      setNotice("Project members saved.");
+      notify.success("Project members saved.");
       closePanel();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not save members");
+      notify.fromError(err, "Could not save members");
     }
   }
 
   async function handleArchive() {
     if (!project) return;
-    setError("");
     try {
       const updated = project.archived ? await restoreProject(id) : await archiveProject(id);
       setProject(updated);
+      notify.success(project.archived ? "Project restored." : "Project archived.");
       closePanel();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not archive the project");
+      notify.fromError(err, "Could not archive the project");
     }
   }
 
   async function handleGenerate() {
     if (!title.trim() || !id) return;
     setGenerating(true);
-    setError("");
     try {
       const result = await generateTaskWithAI({
         title: title.trim(),
@@ -200,12 +193,10 @@ export default function AdminProjectPage() {
       setTitle(result.title);
       setTaskDescription(result.description);
       if (result.source === "fallback") {
-        setNotice("AI was unavailable, so a local draft was filled in. Edit it before saving.");
-      } else {
-        setNotice("");
+        notify.info("AI was unavailable, so a local draft was filled in. Edit it before saving.");
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not generate a description");
+      notify.fromError(err, "Could not generate a description");
     } finally {
       setGenerating(false);
     }
@@ -214,7 +205,6 @@ export default function AdminProjectPage() {
   async function handleGenerateEdit() {
     if (!editTitle.trim() || !id || !selected) return;
     setGenerating(true);
-    setSheetError("");
     try {
       const result = await generateTaskWithAI({
         title: editTitle.trim(),
@@ -225,8 +215,11 @@ export default function AdminProjectPage() {
       });
       setEditTitle(result.title);
       setEditDescription(result.description);
+      if (result.source === "fallback") {
+        notify.info("AI was unavailable, so a local draft was filled in. Edit it before saving.");
+      }
     } catch (err) {
-      setSheetError(err instanceof Error ? err.message : "Could not generate a description");
+      notify.fromError(err, "Could not generate a description");
     } finally {
       setGenerating(false);
     }
@@ -235,8 +228,6 @@ export default function AdminProjectPage() {
   async function handleCreateTask(event: FormEvent) {
     event.preventDefault();
     if (!title.trim()) return;
-    setError("");
-    setNotice("");
     try {
       await createTask({
         title: title.trim(),
@@ -254,17 +245,20 @@ export default function AdminProjectPage() {
       setAssigneeIds([]);
       setDueAt("");
       setPriority(3);
-      if (assigned) setNotice("Task created. New assignees get a task assigned notification.");
+      notify.success(
+        assigned
+          ? "Task created. New assignees get a task assigned notification."
+          : "Task created.",
+      );
       closePanel();
       await load({ quiet: true });
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not create the task");
+      notify.fromError(err, "Could not create the task");
     }
   }
 
   async function openTask(task: Task) {
     setPanel(null);
-    setSheetError("");
     setSelected(task);
     setEditTitle(task.title);
     setEditDescription(task.description ?? "");
@@ -277,14 +271,13 @@ export default function AdminProjectPage() {
     try {
       setComments(await listComments(task.id));
     } catch (err) {
-      setSheetError(err instanceof Error ? err.message : "Could not load comments");
+      notify.fromError(err, "Could not load comments");
     }
   }
 
   async function handleSaveTask(event: FormEvent) {
     event.preventDefault();
     if (!selected || !editTitle.trim()) return;
-    setSheetError("");
     setSavingTask(true);
     try {
       const members = project?.member_ids ?? memberIds;
@@ -299,11 +292,11 @@ export default function AdminProjectPage() {
         updated.id,
         editAssignees.filter((uid) => members.includes(uid)),
       );
-      setNotice("Task saved. New assignees get a task assigned notification.");
+      notify.success("Task saved. New assignees get a task assigned notification.");
       closeTaskSheet();
       await load({ quiet: true });
     } catch (err) {
-      setSheetError(err instanceof Error ? err.message : "Could not save the task");
+      notify.fromError(err, "Could not save the task");
     } finally {
       setSavingTask(false);
     }
@@ -314,9 +307,10 @@ export default function AdminProjectPage() {
     try {
       await deleteTask(taskId);
       if (selected?.id === taskId) closeTaskSheet();
+      notify.success("Task deleted.");
       await load({ quiet: true });
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not delete the task");
+      notify.fromError(err, "Could not delete the task");
     }
   }
 
@@ -334,31 +328,31 @@ export default function AdminProjectPage() {
       const children = await listSubtasks(taskId);
       setSubtasks((prev) => ({ ...prev, [taskId]: children }));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not load subtasks");
+      notify.fromError(err, "Could not load subtasks");
     }
   }
 
   async function handleAddComment(event: FormEvent) {
     event.preventDefault();
     if (!selected || !commentText.trim()) return;
-    setSheetError("");
     try {
       await createComment(selected.id, commentText.trim());
       setCommentText("");
       setComments(await listComments(selected.id));
+      notify.success("Comment posted.");
     } catch (err) {
-      setSheetError(err instanceof Error ? err.message : "Could not post comment");
+      notify.fromError(err, "Could not post comment");
     }
   }
 
   async function handleDeleteComment(commentId: number) {
     if (!selected) return;
-    setSheetError("");
     try {
       await deleteComment(commentId);
       setComments(await listComments(selected.id));
+      notify.success("Comment deleted.");
     } catch (err) {
-      setSheetError(err instanceof Error ? err.message : "Could not delete comment");
+      notify.fromError(err, "Could not delete comment");
     }
   }
 
@@ -373,7 +367,7 @@ export default function AdminProjectPage() {
   if (!project) {
     return (
       <div className="page">
-        <div className="alert alert-error">{error || "Project not found."}</div>
+        <p className="muted">Project not found.</p>
         <Link to="/projects">Back to projects</Link>
       </div>
     );
@@ -389,8 +383,6 @@ export default function AdminProjectPage() {
           {project.archived && <span className="badge">Archived</span>}
         </div>
       </header>
-      {error && <div className="alert alert-error">{error}</div>}
-      {notice && <div className="alert alert-ok">{notice}</div>}
 
       {dashboard && (
         <DashboardPanel
@@ -606,7 +598,6 @@ export default function AdminProjectPage() {
 
       {selected && (
         <Sheet title="Edit task" onClose={closeTaskSheet}>
-          {sheetError && <div className="alert alert-error">{sheetError}</div>}
           <form className="form-stack" onSubmit={handleSaveTask}>
             <label>
               Title

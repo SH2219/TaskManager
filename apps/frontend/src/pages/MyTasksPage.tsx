@@ -5,17 +5,17 @@ import type { Task } from "../api/types";
 import { ProgressBar } from "../components/AssignmentUI";
 import { useAuth } from "../context/AuthContext";
 import { formatDate, statusLabel } from "../lib/format";
+import { notify } from "../lib/notify";
 
 export default function MyTasksPage() {
   const { user } = useAuth();
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
 
   useEffect(() => {
     listMyTasks()
       .then(setTasks)
-      .catch((err) => setError(err instanceof Error ? err.message : "Failed to load tasks"))
+      .catch((err) => notify.fromError(err, "Failed to load tasks"))
       .finally(() => setLoading(false));
   }, []);
 
@@ -29,7 +29,6 @@ export default function MyTasksPage() {
             : "Work assigned to you. Open a task for the details."}
         </p>
       </header>
-      {error && <div className="alert alert-error">{error}</div>}
       {loading ? (
         <section className="card">
           <p className="muted">Loading…</p>

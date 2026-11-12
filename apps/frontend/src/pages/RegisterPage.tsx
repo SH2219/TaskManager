@@ -2,6 +2,7 @@ import { type FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { homePath } from "../lib/format";
+import { notify } from "../lib/notify";
 
 export default function RegisterPage() {
   const { register } = useAuth();
@@ -10,12 +11,10 @@ export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    setError("");
     setLoading(true);
     try {
       const me = await register({
@@ -24,9 +23,10 @@ export default function RegisterPage() {
         phone: phone.trim() || undefined,
         password,
       });
+      notify.success("Account created. You’re signed in as a member.");
       navigate(homePath(me.role));
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not create account");
+      notify.fromError(err, "Could not create account");
     } finally {
       setLoading(false);
     }
@@ -46,7 +46,6 @@ export default function RegisterPage() {
         <form className="auth-card" onSubmit={handleSubmit}>
           <h1>Create account</h1>
           <p className="muted">New accounts join as members. An admin can change that later.</p>
-          {error && <div className="alert alert-error">{error}</div>}
           <label>
             Name
             <input value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" />

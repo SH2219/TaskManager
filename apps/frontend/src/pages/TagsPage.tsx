@@ -1,11 +1,11 @@
 import { type FormEvent, useEffect, useState } from "react";
 import { createTag, deleteTag, listTags, updateTag } from "../api";
 import type { Tag } from "../api/types";
+import { notify } from "../lib/notify";
 
 export default function TagsPage() {
   const [tags, setTags] = useState<Tag[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
   const [name, setName] = useState("");
   const [color, setColor] = useState("#2f6f4e");
   const [description, setDescription] = useState("");
@@ -15,11 +15,10 @@ export default function TagsPage() {
 
   async function load() {
     setLoading(true);
-    setError("");
     try {
       setTags(await listTags());
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load tags");
+      notify.fromError(err, "Failed to load tags");
     } finally {
       setLoading(false);
     }
@@ -40,9 +39,10 @@ export default function TagsPage() {
       });
       setName("");
       setDescription("");
+      notify.success("Tag added.");
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to create tag");
+      notify.fromError(err, "Failed to create tag");
     }
   }
 
@@ -55,9 +55,10 @@ export default function TagsPage() {
         description: editDescription.trim() || null,
       });
       setEditingId(null);
+      notify.success("Tag updated.");
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to update tag");
+      notify.fromError(err, "Failed to update tag");
     }
   }
 
@@ -65,9 +66,10 @@ export default function TagsPage() {
     if (!confirm("Delete this tag?")) return;
     try {
       await deleteTag(id);
+      notify.success("Tag deleted.");
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to delete tag");
+      notify.fromError(err, "Failed to delete tag");
     }
   }
 
@@ -79,7 +81,6 @@ export default function TagsPage() {
           <p className="muted">Labels you can attach to work across projects.</p>
         </div>
       </header>
-      {error && <div className="alert alert-error">{error}</div>}
       <section className="card">
         <h2>New tag</h2>
         <form className="form-stack" onSubmit={handleCreate}>

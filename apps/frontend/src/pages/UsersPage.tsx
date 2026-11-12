@@ -4,6 +4,7 @@ import type { User } from "../api/types";
 import { Sheet } from "../components/Sheet";
 import { useAuth } from "../context/AuthContext";
 import { roleHelp, roleLabel, roleRank } from "../lib/format";
+import { notify } from "../lib/notify";
 
 const ROLES = [
   { value: "admin", label: "Admin" },
@@ -24,8 +25,6 @@ const emptyCreate = {
 export default function UsersPage() {
   const { user: me } = useAuth();
   const [users, setUsers] = useState<User[]>([]);
-  const [error, setError] = useState("");
-  const [notice, setNotice] = useState("");
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<RoleFilter>("all");
   const [query, setQuery] = useState("");
@@ -38,11 +37,10 @@ export default function UsersPage() {
 
   async function load() {
     setLoading(true);
-    setError("");
     try {
       setUsers(await listUsers());
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load users");
+      notify.fromError(err, "Failed to load users");
     } finally {
       setLoading(false);
     }
@@ -95,8 +93,6 @@ export default function UsersPage() {
   async function handleCreate(event: FormEvent) {
     event.preventDefault();
     setCreating(true);
-    setError("");
-    setNotice("");
     try {
       await createUser({
         name: createForm.name.trim() || undefined,
@@ -106,10 +102,10 @@ export default function UsersPage() {
         role: createForm.role,
       });
       closeCreate();
-      setNotice(`${roleLabel(createForm.role)} added.`);
+      notify.success(`${roleLabel(createForm.role)} added.`);
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not create user");
+      notify.fromError(err, "Could not create user");
     } finally {
       setCreating(false);
     }
@@ -119,8 +115,6 @@ export default function UsersPage() {
     event.preventDefault();
     if (!editing?.email.trim()) return;
     setSaving(true);
-    setError("");
-    setNotice("");
     try {
       await updateUser(editing.id, {
         name: editing.name,
@@ -129,10 +123,10 @@ export default function UsersPage() {
         role: editing.role || "member",
       });
       closeEdit();
-      setNotice("User updated.");
+      notify.success("User updated.");
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not update user");
+      notify.fromError(err, "Could not update user");
     } finally {
       setSaving(false);
     }
@@ -141,18 +135,16 @@ export default function UsersPage() {
   async function handleRoleChange(person: User, role: string) {
     if ((person.role || "member") === role) return;
     if (person.id === me?.id && role !== "admin") {
-      setError("You can’t remove your own admin role here.");
+      notify.error("You can’t remove your own admin role here.");
       return;
     }
     setRoleBusyId(person.id);
-    setError("");
-    setNotice("");
     try {
       await updateUser(person.id, { role });
-      setNotice(`${person.name?.trim() || person.email} is now ${roleLabel(role)}.`);
+      notify.success(`${person.name?.trim() || person.email} is now ${roleLabel(role)}.`);
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not change role");
+      notify.fromError(err, "Could not change role");
     } finally {
       setRoleBusyId(null);
     }
@@ -160,15 +152,13 @@ export default function UsersPage() {
 
   async function handleDelete(id: number) {
     if (!confirm("Delete this user?")) return;
-    setError("");
-    setNotice("");
     try {
       await deleteUser(id);
       if (editing?.id === id) closeEdit();
-      setNotice("User deleted.");
+      notify.success("User deleted.");
       await load();
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Could not delete user");
+      notify.fromError(err, "Could not delete user");
     }
   }
 
@@ -194,8 +184,6 @@ export default function UsersPage() {
           </button>
         </div>
       </header>
-      {error && <div className="alert alert-error">{error}</div>}
-      {notice && <div className="alert alert-ok">{notice}</div>}
 
       <section className="role-guide">
         {ROLES.map((item) => (

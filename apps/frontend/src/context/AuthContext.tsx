@@ -9,6 +9,7 @@ import {
 import { getMe, registerUser } from "../api";
 import { apiRequest, clearToken, getToken, setToken } from "../api/client";
 import type { User } from "../api/types";
+import { notify } from "../lib/notify";
 
 type AuthContextValue = {
   user: User | null;
@@ -79,6 +80,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       logout() {
         clearToken();
         setUser(null);
+        notify.info("Signed out");
       },
     }),
     [user, ready],

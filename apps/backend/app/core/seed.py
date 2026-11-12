@@ -1,3 +1,4 @@
+import os
 from datetime import datetime, timedelta, timezone
 
 from sqlalchemy import select
@@ -20,12 +21,14 @@ SAMPLE_PROJECT = "Product launch"
 
 
 async def _ensure_user(db, email: str, password: str, name: str, role: str):
+    """Create the user or keep role/password in sync for seed accounts."""
     existing = await user_repo.get_by_email(db, email)
     if existing:
-        if existing.role != role:
-            existing.role = role
-            await db.commit()
-            await db.refresh(existing)
+        existing.role = role
+        existing.name = name
+        existing.password_hash = user_service.hash_password(password)
+        await db.commit()
+        await db.refresh(existing)
         return existing
     user = await user_service.create_user(
         db,
@@ -42,9 +45,19 @@ async def _ensure_user(db, email: str, password: str, name: str, role: str):
 async def run_seed(db) -> None:
     """Create one account per role, plus a sample project a lead and member can open."""
     await _ensure_user(db, ADMIN_EMAIL, ADMIN_PASSWORD, "Avery Admin", "admin")
+    # Second built-in admin for demos / backup access
+    await _ensure_user(db, "owner@taskmanager.local", "owner1234", "Owner Admin", "admin")
     lead = await _ensure_user(db, LEAD_EMAIL, LEAD_PASSWORD, "Jordan Lead", "project_lead")
     member = await _ensure_user(db, MEMBER_EMAIL, MEMBER_PASSWORD, "Sam Member", "member")
     await _ensure_user(db, DEMO_EMAIL, DEMO_PASSWORD, "Demo User", "member")
+
+    # Optional extra admin from env (useful on Render / demos)
+    extra_email = (os.getenv("SEED_ADMIN_EMAIL") or "").strip().lower()
+    extra_password = (os.getenv("SEED_ADMIN_PASSWORD") or "").strip()
+    extra_name = (os.getenv("SEED_ADMIN_NAME") or "Workspace Admin").strip()
+    if extra_email and extra_password and extra_email not in {ADMIN_EMAIL, "owner@taskmanager.local"}:
+        await _ensure_user(db, extra_email, extra_password, extra_name, "admin")
+        print(f"Seeded extra admin {extra_email}")
 
     existing = (
         await db.execute(select(Project).where(Project.name == SAMPLE_PROJECT))
